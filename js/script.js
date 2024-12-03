@@ -74,9 +74,15 @@ const games = [
     },
     {
         title: 'Pokémon Red',
-        description: 'Try and capture as many pokémon as you can and finish the pokédex',
+        description: 'Try and capture as many pokémon as you can and finish the pokédex in gen 1 pokemon!',
         thumbnail: 'games/PokemonRed/thumbnail.png',
         link: 'games/PokemonRed/index.html'
+    },
+    {
+        title: 'Pokémon Blue',
+        description: 'Try and capture as many pokémon as you can and finish the pokédex in gen 1 pokemon!',
+        thumbnail: 'games/PokemonBlue/thumbnail.png',
+        link: 'games/PokemonBlue/index.html'
     }
 ];
 
