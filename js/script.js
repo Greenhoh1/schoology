@@ -1,11 +1,11 @@
 // List of games (keep your game list as is)
 const games = [
-    {
+    /*{
         title: 'Slope',
         description: 'Roll and dodge obstacles!',
         thumbnail: 'games/Slope/thumbnail.png',
         link: 'games/Slope/index.html'
-    },
+    },*/
     {
         title: 'OvO',
         description: 'Try and beat this impossible game!',
@@ -36,12 +36,12 @@ const games = [
         thumbnail: 'games/HouseOfHazards/thumbnail.png',
         link: 'games/HouseOfHazards/index.html'
     },
-    {
+    /*{
         title: 'Basket Random',
         description: 'Play some basketball and shoot at some hoops.',
         thumbnail: 'games/BasketRandom/thumbnail.png',
         link: 'games/BasketRandom/index.html'
-    },
+    },*/
     {
         title: 'Soccer Random',
         description: 'Play some soccer and score some goals!',
@@ -71,6 +71,12 @@ const games = [
         description: 'Challenge your friends or family to a fun game of volleyball.',
         thumbnail: 'games/VolleyRandom/thumbnail.png',
         link: 'games/VolleyRandom/index.html'
+    },
+    {
+        title: 'Pokémon Red',
+        description: 'Try and capture as many pokémon as you can and finish the pokédex',
+        thumbnail: 'games/PokemonRed/thumbnail.png',
+        link: 'games/PokemonRed/index.html'
     }
 ];
 
