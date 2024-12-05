@@ -113,6 +113,12 @@ const games = [
         description: 'This is just rip off Trackmania lol',
         thumbnail: 'games/Polytrack/thumbnail.png',
         link: 'games/Polytrack/index.html'
+    },
+    {
+        title: 'Basketball Legends 2020',
+        description: 'This is a game all about basketball.',
+        thumbnail: 'games/BasketballLegends2020/thumbnail.png',
+        link: 'games/BasketballLegends2020/index.html'
     }
 ];
 
