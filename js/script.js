@@ -37,6 +37,12 @@ const games = [
         link: 'games/MotoX3M/5-pool-party/index.html'
     },
     {
+        title: 'Moto X3M spooky land',
+        description: 'Fun game about motorcycles with scary halloween theming!',
+        thumbnail: 'games/MotoX3M/6-spooky-land/thumbnail.png',
+        link: 'games/MotoX3M/6-spooky-land/index.html'
+    },
+    {
         title: 'Idle Breakout',
         description: 'An idle game where your goal is to break blocks that spawn in.',
         thumbnail: 'games/IdleBreakout/img/thumbnail.png',
