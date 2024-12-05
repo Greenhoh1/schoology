@@ -31,6 +31,12 @@ const games = [
         link: 'games/MotoX3M/4-winter/index.html'
     },
     {
+        title: 'Moto X3M Pool Party',
+        description: 'Fun game about motorcycles with fun pool party challenges!',
+        thumbnail: 'games/MotoX3M/5-pool-party/thumbnail.png',
+        link: 'games/MotoX3M/5-pool-party/index.html'
+    },
+    {
         title: 'Idle Breakout',
         description: 'An idle game where your goal is to break blocks that spawn in.',
         thumbnail: 'games/IdleBreakout/img/thumbnail.png',
