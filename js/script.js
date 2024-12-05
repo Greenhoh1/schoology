@@ -25,6 +25,12 @@ const games = [
         link: 'games/MotoX3M/2/index.html'
     },
     {
+        title: 'Moto X3M Winter',
+        description: 'Fun game about motorcycles on a winter map with extra challenges!',
+        thumbnail: 'games/MotoX3M/4-winter/thumbnail.png',
+        link: 'games/MotoX3M/4-winter/index.html'
+    },
+    {
         title: 'Idle Breakout',
         description: 'An idle game where your goal is to break blocks that spawn in.',
         thumbnail: 'games/IdleBreakout/img/thumbnail.png',
