@@ -107,6 +107,12 @@ const games = [
         description: 'Try and capture as many pokémon as you can and finish the pokédex in gen 1 pokemon!',
         thumbnail: 'games/PokemonBlue/thumbnail.png',
         link: 'games/PokemonBlue/index.html'
+    },
+    {
+        title: 'Polytrack',
+        description: 'This is just rip off Trackmania lol',
+        thumbnail: 'games/Polytrack/thumbnail.png',
+        link: 'games/Polytrack/index.html'
     }
 ];
 
