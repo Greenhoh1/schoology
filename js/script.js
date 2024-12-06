@@ -119,12 +119,6 @@ const games = [
         description: 'This is a fun puzzle game that involves cars!',
         thumbnail: 'games/DriveMad/webapp/cover.jpg',
         link: 'games/DriveMad/index.html'
-    },
-    {
-        title: 'Pong Online',
-        description: 'This is a clasic 2 player game with 2 paddles and a ball!',
-        thumbnail: 'games/PingPong/pongOnline/thumbnail.png',
-        link: 'games/PingPong/public/index.html'
     }
 ];
 
