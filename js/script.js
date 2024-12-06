@@ -60,12 +60,6 @@ const games = [
         thumbnail: 'games/HouseOfHazards/thumbnail.png',
         link: 'games/HouseOfHazards/index.html'
     },
-    /*{
-        title: 'Basket Random',
-        description: 'Play some basketball and shoot at some hoops.',
-        thumbnail: 'games/BasketRandom/thumbnail.png',
-        link: 'games/BasketRandom/index.html'
-    },*/
     {
         title: 'Soccer Random',
         description: 'Play some soccer and score some goals!',
@@ -119,6 +113,12 @@ const games = [
         description: 'This is a game all about basketball.',
         thumbnail: 'games/BasketballLegends2020/thumbnail.png',
         link: 'games/BasketballLegends2020/index.html'
+    },
+    {
+        title: 'Drive Mad',
+        description: 'This is a fun puzzle game that involves cars!',
+        thumbnail: 'games/DriveMad/webapp/cover.jpg',
+        link: 'games/DriveMad/index.html'
     }
 ];
 
