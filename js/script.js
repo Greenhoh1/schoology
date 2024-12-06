@@ -121,10 +121,10 @@ const games = [
         link: 'games/DriveMad/index.html'
     },
     {
-        title: 'Ping Pong',
-        description: 'A clasic game of 2 paddles and one ball.',
-        thumbnail: 'games/PingPong/thumbnail.png',
-        link: 'games/PingPong/index.html'
+        title: 'A Small World Cup',
+        description: 'a fun mini-soccer sports game where you control a rag doll and slam it against the arena to make the ball score a goal.',
+        thumbnail: 'games/ASmallWorldCup/thumbnail.png',
+        link: 'games/ASmallWorldCup/index.html'
     }
 ];
 
