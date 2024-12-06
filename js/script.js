@@ -119,6 +119,12 @@ const games = [
         description: 'This is a fun puzzle game that involves cars!',
         thumbnail: 'games/DriveMad/webapp/cover.jpg',
         link: 'games/DriveMad/index.html'
+    },
+    {
+        title: 'Ping Pong',
+        description: 'A clasic game of 2 paddles and one ball.',
+        thumbnail: 'games/PingPong/thumbnail.png',
+        link: 'games/PingPong/index.html'
     }
 ];
 
