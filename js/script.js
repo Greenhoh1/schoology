@@ -125,6 +125,12 @@ const games = [
         description: 'a fun mini-soccer sports game where you control a rag doll and slam it against the arena to make the ball score a goal.',
         thumbnail: 'games/ASmallWorldCup/thumbnail.png',
         link: 'games/ASmallWorldCup/index.html'
+    },
+    {
+        title: 'The Oregon Trail',
+        description: 'You get to play the role of a wagon leader and guide your group of chosen settlers from Independence, Missouri, to the Willamette Valley in Oregon while traveling along the Oregon Trail.',
+        thumbnail: 'games/OregonTrail/thumbnail.png',
+        link: 'games/OregonTrail/index.html'
     }
 ];
 
