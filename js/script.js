@@ -1,11 +1,5 @@
 // List of games (keep your game list as is)
 const games = [
-    /*{
-        title: 'Slope',
-        description: 'Roll and dodge obstacles!',
-        thumbnail: 'games/Slope/thumbnail.png',
-        link: 'games/Slope/index.html'
-    },*/
     {
         title: 'OvO',
         description: 'Try and beat this impossible game!',
@@ -17,6 +11,30 @@ const games = [
         description: 'Fun game about motorcycles',
         thumbnail: 'games/MotoX3M/moto-x3m.png',
         link: 'games/MotoX3M/index.html'
+    },
+    {
+        title: 'Moto X3M 2',
+        description: 'Fun game about motorcycles V2',
+        thumbnail: 'games/MotoX3M/2/thumbnail.png',
+        link: 'games/MotoX3M/2/index.html'
+    },
+    {
+        title: 'Moto X3M Winter',
+        description: 'Fun game about motorcycles on a winter map with extra challenges!',
+        thumbnail: 'games/MotoX3M/4-winter/thumbnail.png',
+        link: 'games/MotoX3M/4-winter/index.html'
+    },
+    {
+        title: 'Moto X3M Pool Party',
+        description: 'Fun game about motorcycles with fun pool party challenges!',
+        thumbnail: 'games/MotoX3M/5-pool-party/thumbnail.png',
+        link: 'games/MotoX3M/5-pool-party/index.html'
+    },
+    {
+        title: 'Moto X3M spooky land',
+        description: 'Fun game about motorcycles with scary halloween theming!',
+        thumbnail: 'games/MotoX3M/6-spooky-land/thumbnail.png',
+        link: 'games/MotoX3M/6-spooky-land/index.html'
     },
     {
         title: 'Idle Breakout',
@@ -36,12 +54,6 @@ const games = [
         thumbnail: 'games/HouseOfHazards/thumbnail.png',
         link: 'games/HouseOfHazards/index.html'
     },
-    /*{
-        title: 'Basket Random',
-        description: 'Play some basketball and shoot at some hoops.',
-        thumbnail: 'games/BasketRandom/thumbnail.png',
-        link: 'games/BasketRandom/index.html'
-    },*/
     {
         title: 'Soccer Random',
         description: 'Play some soccer and score some goals!',
@@ -73,16 +85,40 @@ const games = [
         link: 'games/VolleyRandom/index.html'
     },
     {
-        title: 'Pokémon Red',
-        description: 'Try and capture as many pokémon as you can and finish the pokédex in gen 1 pokemon!',
-        thumbnail: 'games/PokemonRed/thumbnail.png',
-        link: 'games/PokemonRed/index.html'
+        title: 'Polytrack',
+        description: 'This is just rip off Trackmania lol',
+        thumbnail: 'games/Polytrack/thumbnail.png',
+        link: 'games/Polytrack/index.html'
     },
     {
-        title: 'Pokémon Blue',
-        description: 'Try and capture as many pokémon as you can and finish the pokédex in gen 1 pokemon!',
-        thumbnail: 'games/PokemonBlue/thumbnail.png',
-        link: 'games/PokemonBlue/index.html'
+        title: 'Basketball Legends 2020',
+        description: 'This is a game all about basketball.',
+        thumbnail: 'games/BasketballLegends2020/thumbnail.png',
+        link: 'games/BasketballLegends2020/index.html'
+    },
+    {
+        title: 'Drive Mad',
+        description: 'This is a fun puzzle game that involves cars!',
+        thumbnail: 'games/DriveMad/webapp/cover.jpg',
+        link: 'games/DriveMad/index.html'
+    },
+    {
+        title: 'A Small World Cup',
+        description: 'a fun mini-soccer sports game where you control a rag doll and slam it against the arena to make the ball score a goal.',
+        thumbnail: 'games/ASmallWorldCup/thumbnail.png',
+        link: 'games/ASmallWorldCup/index.html'
+    },
+    {
+        title: 'The Oregon Trail',
+        description: 'You get to play the role of a wagon leader and guide your group of chosen settlers from Independence, Missouri, to the Willamette Valley in Oregon while traveling along the Oregon Trail.',
+        thumbnail: 'games/OregonTrail/thumbnail.png',
+        link: 'games/OregonTrail/index.html'
+    },
+    {
+        title: 'Pacman',
+        description: 'This is a clasic game it doesnt need any explenation',
+        thumbnail: 'games\Pacman\icon\ios_icon.png',
+        link: 'games\Pacman\index.html'
     }
 ];
 
