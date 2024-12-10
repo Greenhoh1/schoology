@@ -113,6 +113,12 @@ const games = [
         description: 'You get to play the role of a wagon leader and guide your group of chosen settlers from Independence, Missouri, to the Willamette Valley in Oregon while traveling along the Oregon Trail.',
         thumbnail: 'games/OregonTrail/thumbnail.png',
         link: 'games/OregonTrail/index.html'
+    },
+    {
+        title: 'Pacman',
+        description: 'Its pacman people get it together.',
+        thumbnail: 'games\Pacman\icon\ios_icon.png',
+        link: 'games\Pacman\index.html'
     }
 ];
 
