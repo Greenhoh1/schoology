@@ -117,8 +117,8 @@ const games = [
     {
         title: 'Pacman',
         description: 'Its pacman people get it together.',
-        thumbnail: 'games\Pacman\icon\ios_icon.png',
-        link: 'games\Pacman\index.html'
+        thumbnail: 'games/Pacman/icon/ios_icon.png',
+        link: 'games/Pacman/index.html'
     }
 ];
 
