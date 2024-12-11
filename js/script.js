@@ -131,6 +131,12 @@ const games = [
         description: 'In this captivating speed run game, you will navigate a futuristic slope, deftly dodging obstacles as you roll your ball to victory.',
         thumbnail: 'games/Slope/thumbnail.png',
         link: 'games/Slope/index.html'
+    },
+    {
+        title: 'Galaxian',
+        description: 'hop into a spaceship and destroy some aliens.',
+        thumbnail: 'games/Galaxian/thumbnail.png',
+        link: 'games/Galaxian/index.html'
     }
 ];
 
