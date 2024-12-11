@@ -125,6 +125,12 @@ const games = [
         description: 'An addictive puzzle game inspired by Tetris.',
         thumbnail: 'games/Hextris/images/icons/apple-touch-512.png',
         link: 'games/Hextris/index.html'
+    },
+    {
+        title: 'Slope',
+        description: 'In this captivating speed run game, you will navigate a futuristic slope, deftly dodging obstacles as you roll your ball to victory.',
+        thumbnail: 'games/Slope/thumbnail.png',
+        link: 'games/Slope/index.html'
     }
 ];
 
