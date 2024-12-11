@@ -119,6 +119,12 @@ const games = [
         description: 'Its pacman people get it together.',
         thumbnail: 'games/Pacman/icon/ios_icon.png',
         link: 'games/Pacman/index.html'
+    },
+    {
+        title: 'Hextris',
+        description: 'An addictive puzzle game inspired by Tetris.',
+        thumbnail: 'games/Hextris/images/icons/apple-touch-512.png',
+        link: 'games/Hextris/index.html'
     }
 ];
 
