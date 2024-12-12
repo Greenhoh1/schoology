@@ -131,6 +131,12 @@ const games = [
         description: 'In this captivating speed run game, you will navigate a futuristic slope, deftly dodging obstacles as you roll your ball to victory.',
         thumbnail: 'games/Slope/thumbnail.png',
         link: 'games/Slope/index.html'
+    },
+    {
+        title: 'Boxy Run',
+        description: 'The objective of the game is to jump and shuffle to avoid the trees. The 3D Graphics are powered by Three.js, which provides the camera, lights, and basic geometries required to create the scene.',
+        thumbnail: 'games/BoxyRun/thumbnail.png',
+        link: 'games/BoxyRun/index.html'
     }
 ];
 
