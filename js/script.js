@@ -1,215 +1,293 @@
 // List of games (keep your game list as is)
 const games = [
     {
-        title: 'OvO',
+        id: 1,
+        name: 'OvO',
+        category: 'action',
         description: 'Try and beat this impossible game!',
-        thumbnail: 'games/OvO/thumbnail.png',
+        image: 'games/OvO/thumbnail.png',
         link: 'games/OvO/index.html'
     },
     {
-        title: 'Moto X3M',
+        id: 2,
+        name: 'Moto X3M',
+        category: 'racing',
         description: 'Fun game about motorcycles',
-        thumbnail: 'games/MotoX3M/moto-x3m.png',
+        image: 'games/MotoX3M/moto-x3m.png',
         link: 'games/MotoX3M/index.html'
     },
     {
-        title: 'Moto X3M 2',
+        id: 3,
+        name: 'Moto X3M 2',
+        category: 'racing',
         description: 'Fun game about motorcycles V2',
-        thumbnail: 'games/MotoX3M/2/thumbnail.png',
+        image: 'games/MotoX3M/2/thumbnail.png',
         link: 'games/MotoX3M/2/index.html'
     },
     {
-        title: 'Moto X3M Winter',
+        id: 4,
+        name: 'Moto X3M Winter',
+        category: 'racing',
         description: 'Fun game about motorcycles on a winter map with extra challenges!',
-        thumbnail: 'games/MotoX3M/4-winter/thumbnail.png',
+        image: 'games/MotoX3M/4-winter/thumbnail.png',
         link: 'games/MotoX3M/4-winter/index.html'
     },
     {
-        title: 'Moto X3M Pool Party',
+        id: 5,
+        name: 'Moto X3M Pool Party',
+        category: 'racing',
         description: 'Fun game about motorcycles with fun pool party challenges!',
-        thumbnail: 'games/MotoX3M/5-pool-party/thumbnail.png',
+        image: 'games/MotoX3M/5-pool-party/thumbnail.png',
         link: 'games/MotoX3M/5-pool-party/index.html'
     },
     {
-        title: 'Moto X3M spooky land',
+        id: 6,
+        name: 'Moto X3M Spooky Land',
+        category: 'racing',
         description: 'Fun game about motorcycles with scary halloween theming!',
-        thumbnail: 'games/MotoX3M/6-spooky-land/thumbnail.png',
+        image: 'games/MotoX3M/6-spooky-land/thumbnail.png',
         link: 'games/MotoX3M/6-spooky-land/index.html'
     },
     {
-        title: 'Idle Breakout',
+        id: 7,
+        name: 'Idle Breakout',
+        category: 'idle',
         description: 'An idle game where your goal is to break blocks that spawn in.',
-        thumbnail: 'games/IdleBreakout/img/thumbnail.png',
+        image: 'games/IdleBreakout/img/thumbnail.png',
         link: 'games/IdleBreakout/index.html'
     },
     {
-        title: 'Sandtris',
+        id: 8,
+        name: 'Sandtris',
+        category: 'puzzle',
         description: 'Tetris but with physics!',
-        thumbnail: 'games/Sandtris/thumbnail.png',
+        image: 'games/Sandtris/thumbnail.png',
         link: 'games/Sandtris/index.html'
     },
     {
-        title: 'House Of Hazards',
+        id: 9,
+        name: 'House Of Hazards',
+        category: 'action',
         description: 'Dodge your friends or npcs as you complete tasks to win the game!',
-        thumbnail: 'games/HouseOfHazards/thumbnail.png',
+        image: 'games/HouseOfHazards/thumbnail.png',
         link: 'games/HouseOfHazards/index.html'
     },
     {
-        title: 'Soccer Random',
+        id: 10,
+        name: 'Soccer Random',
+        category: 'sports',
         description: 'Play some soccer and score some goals!',
-        thumbnail: 'games/SoccerRandom/thumbnail.png',
+        image: 'games/SoccerRandom/thumbnail.png',
         link: 'games/SoccerRandom/index.html'
     },
     {
-        title: 'Retro Bowl',
+        id: 11,
+        name: 'Retro Bowl',
+        category: 'sports',
         description: 'Play some football with your favorite teams!',
-        thumbnail: 'games/RetroBowl/thumbnail.png',
+        image: 'games/RetroBowl/thumbnail.png',
         link: 'games/RetroBowl/index.html'
     },
     {
-        title: 'Cookie Clicker',
+        id: 12,
+        name: 'Cookie Clicker',
+        category: 'idle',
         description: 'Start clicking that cookie and take over the world!',
-        thumbnail: 'games/CookieClicker/thumbnail.png',
+        image: 'games/CookieClicker/thumbnail.png',
         link: 'games/CookieClicker/index.html'
     },
     {
-        title: 'Boxing Random',
+        id: 13,
+        name: 'Boxing Random',
+        category: 'sports',
         description: 'Fight your way up the ranks or fight your friends in boxing random!',
-        thumbnail: 'games/BoxingRandom/thumbnail.png',
+        image: 'games/BoxingRandom/thumbnail.png',
         link: 'games/BoxingRandom/index.html'
     },
     {
-        title: 'Volley Random',
+        id: 14,
+        name: 'Volley Random',
+        category: 'sports',
         description: 'Challenge your friends or family to a fun game of volleyball.',
-        thumbnail: 'games/VolleyRandom/thumbnail.png',
+        image: 'games/VolleyRandom/thumbnail.png',
         link: 'games/VolleyRandom/index.html'
     },
     {
-        title: 'Polytrack',
+        id: 15,
+        name: 'Polytrack',
+        category: 'racing',
         description: 'This is just rip off Trackmania lol',
-        thumbnail: 'games/Polytrack/thumbnail.png',
+        image: 'games/Polytrack/thumbnail.png',
         link: 'games/Polytrack/index.html'
     },
     {
-        title: 'Basketball Legends 2020',
+        id: 16,
+        name: 'Basketball Legends 2020',
+        category: 'sports',
         description: 'This is a game all about basketball.',
-        thumbnail: 'games/BasketballLegends2020/thumbnail.png',
+        image: 'games/BasketballLegends2020/thumbnail.png',
         link: 'games/BasketballLegends2020/index.html'
     },
     {
-        title: 'Drive Mad',
+        id: 17,
+        name: 'Drive Mad',
+        category: 'puzzle',
         description: 'This is a fun puzzle game that involves cars!',
-        thumbnail: 'games/DriveMad/webapp/cover.jpg',
+        image: 'games/DriveMad/webapp/cover.jpg',
         link: 'games/DriveMad/index.html'
     },
     {
-        title: 'A Small World Cup',
-        description: 'a fun mini-soccer sports game where you control a rag doll and slam it against the arena to make the ball score a goal.',
-        thumbnail: 'games/ASmallWorldCup/thumbnail.png',
+        id: 18,
+        name: 'A Small World Cup',
+        category: 'sports',
+        description: 'A fun mini-soccer sports game where you control a rag doll and slam it against the arena to make the ball score a goal.',
+        image: 'games/ASmallWorldCup/thumbnail.png',
         link: 'games/ASmallWorldCup/index.html'
     },
     {
-        title: 'The Oregon Trail',
+        id: 19,
+        name: 'The Oregon Trail',
+        category: 'adventure',
         description: 'You get to play the role of a wagon leader and guide your group of chosen settlers from Independence, Missouri, to the Willamette Valley in Oregon while traveling along the Oregon Trail.',
-        thumbnail: 'games/OregonTrail/thumbnail.png',
+        image: 'games/OregonTrail/thumbnail.png',
         link: 'games/OregonTrail/index.html'
     },
     {
-        title: 'Pacman',
+        id: 20,
+        name: 'Pacman',
+        category: 'arcade',
         description: 'Its pacman people get it together.',
-        thumbnail: 'games/Pacman/icon/ios_icon.png',
+        image: 'games/Pacman/icon/ios_icon.png',
         link: 'games/Pacman/index.html'
     },
     {
-        title: 'Hextris',
+        id: 21,
+        name: 'Hextris',
+        category: 'puzzle',
         description: 'An addictive puzzle game inspired by Tetris.',
-        thumbnail: 'games/Hextris/images/icons/apple-touch-512.png',
+        image: 'games/Hextris/images/icons/apple-touch-512.png',
         link: 'games/Hextris/index.html'
     },
     {
-        title: 'Slope',
+        id: 22,
+        name: 'Slope',
+        category: 'action',
         description: 'In this captivating speed run game, you will navigate a futuristic slope, deftly dodging obstacles as you roll your ball to victory.',
-        thumbnail: 'games/Slope/thumbnail.png',
+        image: 'games/Slope/thumbnail.png',
         link: 'games/Slope/index.html'
     },
     {
-        title: 'Boxy Run',
+        id: 23,
+        name: 'Boxy Run',
+        category: 'action',
         description: 'The objective of the game is to jump and shuffle to avoid the trees. The 3D Graphics are powered by Three.js, which provides the camera, lights, and basic geometries required to create the scene.',
-        thumbnail: 'games/BoxyRun/thumbnail.png',
+        image: 'games/BoxyRun/thumbnail.png',
         link: 'games/BoxyRun/index.html'
     }
 ];
-// Grab the required DOM elements
-const gamesList = document.querySelector('.games-list');
-const searchInput = document.getElementById('searchInput');
-const searchButton = document.getElementById('searchButton');
-const clearSearchButton = document.getElementById('clearSearchButton');
 
-// Sort games alphabetically A-Z by title
-function sortGamesAZ() {
-    return [...games].sort((a, b) => a.title.localeCompare(b.title));
-}
+let currentPage = 1;
+const gamesPerPage = 6;
 
-// Render games dynamically
-function renderGames(gameList = games) {
-    gamesList.innerHTML = ''; // Clear the game list
+function displayGames(gamesToShow) {
+    const gamesList = document.querySelector('.games-list');
+    gamesList.innerHTML = '';
 
-    if (gameList.length === 0) {
-        gamesList.innerHTML = '<div class="no-results-message">No results found.</div>';
+    if (gamesToShow.length === 0) {
+        gamesList.innerHTML = '<p class="no-results-message">No games found. Try a different search or category.</p>';
         return;
     }
 
-    gameList.forEach(game => {
+    const startIndex = (currentPage - 1) * gamesPerPage;
+    const endIndex = startIndex + gamesPerPage;
+    const paginatedGames = gamesToShow.slice(startIndex, endIndex);
+
+    paginatedGames.forEach(game => {
         const gameItem = document.createElement('div');
         gameItem.classList.add('game-item');
         gameItem.innerHTML = `
-            <img src="${game.thumbnail}" alt="${game.title} Thumbnail" loading="lazy">
-            <h3>${game.title}</h3>
+            <img src="${game.image}" alt="${game.name}">
+            <h3>${game.name}</h3>
             <p>${game.description}</p>
-            <a href="${game.link}" target="_blank">Play Now</a>
+            <a href="${game.link}">Play Now</a>
         `;
         gamesList.appendChild(gameItem);
     });
+
+    updatePagination(gamesToShow.length);
 }
 
-// Search functionality
-function searchGames() {
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    const filteredGames = games.filter(game => 
-        game.title.toLowerCase().includes(searchTerm) || 
-        game.description.toLowerCase().includes(searchTerm)
+function updatePagination(totalGames) {
+    const prevButton = document.getElementById('prevPage');
+    const nextButton = document.getElementById('nextPage');
+    const currentPageSpan = document.getElementById('currentPage');
+
+    const totalPages = Math.ceil(totalGames / gamesPerPage);
+
+    prevButton.disabled = currentPage === 1;
+    nextButton.disabled = currentPage === totalPages;
+
+    currentPageSpan.textContent = `Page ${currentPage} of ${totalPages}`;
+}
+
+function filterAndSortGames() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const category = document.getElementById('categoryFilter').value;
+    const sortBy = document.getElementById('sortSelect').value;
+
+    let filteredGames = games.filter(game => 
+        game.name.toLowerCase().includes(searchTerm) &&
+        (category === '' || game.category === category)
     );
-    renderGames(sortGamesAZ(filteredGames));
-}
 
-// Clear search
-function clearSearch() {
-    searchInput.value = '';
-    renderGames(sortGamesAZ());
+    switch(sortBy) {
+        case 'alphabetical':
+            filteredGames.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+        case 'reverse-alphabetical':
+            filteredGames.sort((a, b) => b.name.localeCompare(a.name));
+            break;
+        case 'newest':
+            filteredGames.sort((a, b) => b.id - a.id);
+            break;
+        case 'oldest':
+            filteredGames.sort((a, b) => a.id - b.id);
+            break;
+    }
+
+    currentPage = 1;
+    displayGames(filteredGames);
 }
 
 // Event listeners
-searchButton.addEventListener('click', searchGames);
-clearSearchButton.addEventListener('click', clearSearch);
-searchInput.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') {
-        searchGames();
+document.getElementById('searchButton').addEventListener('click', filterAndSortGames);
+document.getElementById('clearSearchButton').addEventListener('click', () => {
+    document.getElementById('searchInput').value = '';
+    filterAndSortGames();
+});
+document.getElementById('searchInput').addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        filterAndSortGames();
+    }
+});
+document.getElementById('categoryFilter').addEventListener('change', filterAndSortGames);
+document.getElementById('sortSelect').addEventListener('change', filterAndSortGames);
+
+document.getElementById('prevPage').addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        filterAndSortGames();
     }
 });
 
-// Debounce function for search input
-function debounce(func, delay) {
-    let timeoutId;
-    return function (...args) {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => func.apply(this, args), delay);
-    };
-}
-
-// Apply debounce to search input
-searchInput.addEventListener('input', debounce(searchGames, 300));
-
-// Initial render: Sort and then render the games
-document.addEventListener('DOMContentLoaded', () => {
-    renderGames(sortGamesAZ()); // Automatically sort games alphabetically when the page loads
+document.getElementById('nextPage').addEventListener('click', () => {
+    const totalGames = games.length;
+    const totalPages = Math.ceil(totalGames / gamesPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        filterAndSortGames();
+    }
 });
+
+// Initial display
+displayGames(games);
