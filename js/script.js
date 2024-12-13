@@ -186,108 +186,98 @@ const games = [
     }
 ];
 
-let currentPage = 1;
-const gamesPerPage = 6;
+// DOM elements
+const gamesList = document.querySelector('.games-list');
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const clearSearchButton = document.getElementById('clearSearchButton');
+const categoryButtons = document.querySelectorAll('.category-btn');
+const sortSelect = document.getElementById('sortSelect');
 
+// Function to create game items
+function createGameItem(game) {
+    const gameItem = document.createElement('div');
+    gameItem.classList.add('game-item');
+    gameItem.innerHTML = `
+        <img src="${game.image}" alt="${game.name}">
+        <h3>${game.name}</h3>
+        <p>${game.description}</p>
+        <a href="${game.link}" target="_blank">Play Now</a>
+    `;
+    return gameItem;
+}
+
+// Function to display games
 function displayGames(gamesToShow) {
-    const gamesList = document.querySelector('.games-list');
     gamesList.innerHTML = '';
-
     if (gamesToShow.length === 0) {
-        gamesList.innerHTML = '<p class="no-results-message">No games found. Try a different search or category.</p>';
-        return;
+        gamesList.innerHTML = '<p class="no-results-message">No games found</p>';
+    } else {
+        gamesToShow.forEach(game => {
+            gamesList.appendChild(createGameItem(game));
+        });
     }
+}
 
-    const startIndex = (currentPage - 1) * gamesPerPage;
-    const endIndex = startIndex + gamesPerPage;
-    const paginatedGames = gamesToShow.slice(startIndex, endIndex);
-
-    paginatedGames.forEach(game => {
-        const gameItem = document.createElement('div');
-        gameItem.classList.add('game-item');
-        gameItem.innerHTML = `
-            <img src="${game.image}" alt="${game.name}">
-            <h3>${game.name}</h3>
-            <p>${game.description}</p>
-            <a href="${game.link}">Play Now</a>
-        `;
-        gamesList.appendChild(gameItem);
+// Function to filter games
+function filterGames() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+    const filteredGames = games.filter(game => {
+        const matchesSearch = game.name.toLowerCase().includes(searchTerm) || 
+                              game.description.toLowerCase().includes(searchTerm);
+        const matchesCategory = activeCategory === 'all' || game.category === activeCategory;
+        return matchesSearch && matchesCategory;
     });
-
-    updatePagination(gamesToShow.length);
+    return filteredGames;
 }
 
-function updatePagination(totalGames) {
-    const prevButton = document.getElementById('prevPage');
-    const nextButton = document.getElementById('nextPage');
-    const currentPageSpan = document.getElementById('currentPage');
-
-    const totalPages = Math.ceil(totalGames / gamesPerPage);
-
-    prevButton.disabled = currentPage === 1;
-    nextButton.disabled = currentPage === totalPages;
-
-    currentPageSpan.textContent = `Page ${currentPage} of ${totalPages}`;
+// Function to sort games
+function sortGames(gamesToSort) {
+    const sortValue = sortSelect.value;
+    return gamesToSort.sort((a, b) => {
+        switch (sortValue) {
+            case 'name':
+                return a.name.localeCompare(b.name);
+            case 'nameReverse':
+                return b.name.localeCompare(a.name);
+            case 'newest':
+                return b.id - a.id;
+            case 'oldest':
+                return a.id - b.id;
+            default:
+                return 0;
+        }
+    });
 }
 
-function filterAndSortGames() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const category = document.getElementById('categoryFilter').value;
-    const sortBy = document.getElementById('sortSelect').value;
-
-    let filteredGames = games.filter(game => 
-        game.name.toLowerCase().includes(searchTerm) &&
-        (category === '' || game.category === category)
-    );
-
-    switch(sortBy) {
-        case 'alphabetical':
-            filteredGames.sort((a, b) => a.name.localeCompare(b.name));
-            break;
-        case 'reverse-alphabetical':
-            filteredGames.sort((a, b) => b.name.localeCompare(a.name));
-            break;
-        case 'newest':
-            filteredGames.sort((a, b) => b.id - a.id);
-            break;
-        case 'oldest':
-            filteredGames.sort((a, b) => a.id - b.id);
-            break;
-    }
-
-    currentPage = 1;
+// Function to update game display
+function updateGameDisplay() {
+    let filteredGames = filterGames();
+    filteredGames = sortGames(filteredGames);
     displayGames(filteredGames);
 }
 
 // Event listeners
-document.getElementById('searchButton').addEventListener('click', filterAndSortGames);
-document.getElementById('clearSearchButton').addEventListener('click', () => {
-    document.getElementById('searchInput').value = '';
-    filterAndSortGames();
+searchButton.addEventListener('click', updateGameDisplay);
+searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') updateGameDisplay();
 });
-document.getElementById('searchInput').addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') {
-        filterAndSortGames();
-    }
-});
-document.getElementById('categoryFilter').addEventListener('change', filterAndSortGames);
-document.getElementById('sortSelect').addEventListener('change', filterAndSortGames);
-
-document.getElementById('prevPage').addEventListener('click', () => {
-    if (currentPage > 1) {
-        currentPage--;
-        filterAndSortGames();
-    }
+clearSearchButton.addEventListener('click', () => {
+    searchInput.value = '';
+    updateGameDisplay();
 });
 
-document.getElementById('nextPage').addEventListener('click', () => {
-    const totalGames = games.length;
-    const totalPages = Math.ceil(totalGames / gamesPerPage);
-    if (currentPage < totalPages) {
-        currentPage++;
-        filterAndSortGames();
-    }
+categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        updateGameDisplay();
+    });
 });
+
+sortSelect.addEventListener('change', updateGameDisplay);
 
 // Initial display
-displayGames(games);
+categoryButtons[0].classList.add('active');
+updateGameDisplay();
