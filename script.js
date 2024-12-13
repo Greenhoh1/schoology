@@ -186,98 +186,59 @@ const games = [
     }
 ];
 
-// DOM elements
-const gamesList = document.querySelector('.games-list');
-const searchInput = document.getElementById('searchInput');
-const searchButton = document.getElementById('searchButton');
-const clearSearchButton = document.getElementById('clearSearchButton');
-const categoryButtons = document.querySelectorAll('.category-btn');
-const sortSelect = document.getElementById('sortSelect');
+// Example game data
+const games = [
+    { id: 1, title: "Action Adventure", category: "action", image: "https://via.placeholder.com/250x150", description: "An exciting action-packed adventure!" },
+    { id: 2, title: "Puzzle Quest", category: "puzzle", image: "https://via.placeholder.com/250x150", description: "Challenge your mind with puzzles!" },
+    { id: 3, title: "Epic Journey", category: "adventure", image: "https://via.placeholder.com/250x150", description: "Embark on an epic journey!" }
+];
 
-// Function to create game items
-function createGameItem(game) {
-    const gameItem = document.createElement('div');
-    gameItem.classList.add('game-item');
-    gameItem.innerHTML = `
-        <img src="${game.image}" alt="${game.name}">
-        <h3>${game.name}</h3>
-        <p>${game.description}</p>
-        <a href="${game.link}" target="_blank">Play Now</a>
-    `;
-    return gameItem;
-}
+// DOM Elements
+const gamesList = document.getElementById("gamesList");
+const noResultsMessage = document.getElementById("noResultsMessage");
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
 
-// Function to display games
-function displayGames(gamesToShow) {
-    gamesList.innerHTML = '';
-    if (gamesToShow.length === 0) {
-        gamesList.innerHTML = '<p class="no-results-message">No games found</p>';
+// Render Games
+function renderGames(filteredGames) {
+    gamesList.innerHTML = ""; // Clear list
+    if (filteredGames.length === 0) {
+        noResultsMessage.style.display = "block";
     } else {
-        gamesToShow.forEach(game => {
-            gamesList.appendChild(createGameItem(game));
+        noResultsMessage.style.display = "none";
+        filteredGames.forEach(game => {
+            const gameItem = document.createElement("div");
+            gameItem.className = "game-item";
+            gameItem.innerHTML = `
+                <img src="${game.image}" alt="${game.title}">
+                <h3>${game.title}</h3>
+                <p>${game.description}</p>
+                <a href="#">Play Now</a>
+            `;
+            gamesList.appendChild(gameItem);
         });
     }
 }
 
-// Function to filter games
-function filterGames() {
-    const searchTerm = searchInput.value.toLowerCase();
-    const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+// Initial render
+renderGames(games);
+
+// Search and Filter Functionality
+document.getElementById("searchButton").addEventListener("click", () => {
+    const searchText = searchInput.value.toLowerCase();
+    const category = categoryFilter.value;
     const filteredGames = games.filter(game => {
-        const matchesSearch = game.name.toLowerCase().includes(searchTerm) || 
-                              game.description.toLowerCase().includes(searchTerm);
-        const matchesCategory = activeCategory === 'all' || game.category === activeCategory;
-        return matchesSearch && matchesCategory;
+        return (
+            game.title.toLowerCase().includes(searchText) &&
+            (category === "all" || game.category === category)
+        );
     });
-    return filteredGames;
-}
-
-// Function to sort games
-function sortGames(gamesToSort) {
-    const sortValue = sortSelect.value;
-    return gamesToSort.sort((a, b) => {
-        switch (sortValue) {
-            case 'name':
-                return a.name.localeCompare(b.name);
-            case 'nameReverse':
-                return b.name.localeCompare(a.name);
-            case 'newest':
-                return b.id - a.id;
-            case 'oldest':
-                return a.id - b.id;
-            default:
-                return 0;
-        }
-    });
-}
-
-// Function to update game display
-function updateGameDisplay() {
-    let filteredGames = filterGames();
-    filteredGames = sortGames(filteredGames);
-    displayGames(filteredGames);
-}
-
-// Event listeners
-searchButton.addEventListener('click', updateGameDisplay);
-searchInput.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') updateGameDisplay();
-});
-clearSearchButton.addEventListener('click', () => {
-    searchInput.value = '';
-    updateGameDisplay();
+    renderGames(filteredGames);
 });
 
-categoryButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        categoryButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        updateGameDisplay();
-    });
+document.getElementById("clearSearchButton").addEventListener("click", () => {
+    searchInput.value = "";
+    categoryFilter.value = "all";
+    renderGames(games);
 });
 
-sortSelect.addEventListener('change', updateGameDisplay);
-
-// Initial display
-categoryButtons[0].classList.add('active');
-updateGameDisplay();
