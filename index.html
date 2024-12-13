@@ -3,53 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greenhoh1's Game Hosting</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Game List</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Greenhoh1's Game Hosting</h1>
-        <p>Explore and play amazing games directly in your browser!</p>             
-    </header>    
-    <main>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search games...">
-            <button id="searchButton"><i class="fas fa-search"></i></button>
-            <button id="clearSearchButton"><i class="fas fa-times"></i></button>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search games...">
+        <button id="searchButton">Search</button>
+        <button id="clearSearchButton">Clear</button>
+    </div>
+
+    <div class="filter-sort-container">
+        <div class="category-filter">
+            <button class="category-btn" data-category="all">All</button>
+            <button class="category-btn" data-category="action">Action</button>
+            <button class="category-btn" data-category="puzzle">Puzzle</button>
+            <button class="category-btn" data-category="strategy">Strategy</button>
         </div>
 
-        <div class="filter-sort-container">
-            <select id="categoryFilter">
-                <option value="">All Categories</option>
-                <option value="action">Action</option>
-                <option value="puzzle">Puzzle</option>
-                <option value="sports">Sports</option>
-                <!-- Add more categories as needed -->
-            </select>
-            <select id="sortSelect">
-                <option value="alphabetical">A-Z</option>
-                <option value="reverse-alphabetical">Z-A</option>
-                <option value="newest">Newest First</option>
-                <option value="oldest">Oldest First</option>
-            </select>
-        </div>
+        <select id="sortSelect">
+            <option value="name">Name (A-Z)</option>
+            <option value="nameReverse">Name (Z-A)</option>
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+        </select>
+    </div>
 
-        <div class="games-list">
-            <!-- Games will be dynamically listed here -->
-        </div>        
+    <div class="games-list">
+        <!-- Game items will be dynamically added here -->
+    </div>
 
-        <div class="pagination">
-            <button id="prevPage" disabled>Previous</button>
-            <span id="currentPage">Page 1</span>
-            <button id="nextPage">Next</button>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Greenhoh1's Game Hosting | Built with ❤️ and GitHub Pages</p>
-    </footer>
     <script src="js/script.js"></script>
 </body>
 </html>
