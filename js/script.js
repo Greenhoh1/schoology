@@ -139,9 +139,11 @@ const games = [
         link: 'games/BoxyRun/index.html'
     }
 ];
-
 // Grab the required DOM elements
 const gamesList = document.querySelector('.games-list');
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const clearSearchButton = document.getElementById('clearSearchButton');
 
 // Sort games alphabetically A-Z by title
 function sortGamesAZ() {
@@ -169,6 +171,43 @@ function renderGames(gameList = games) {
         gamesList.appendChild(gameItem);
     });
 }
+
+// Search functionality
+function searchGames() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const filteredGames = games.filter(game => 
+        game.title.toLowerCase().includes(searchTerm) || 
+        game.description.toLowerCase().includes(searchTerm)
+    );
+    renderGames(sortGamesAZ(filteredGames));
+}
+
+// Clear search
+function clearSearch() {
+    searchInput.value = '';
+    renderGames(sortGamesAZ());
+}
+
+// Event listeners
+searchButton.addEventListener('click', searchGames);
+clearSearchButton.addEventListener('click', clearSearch);
+searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+        searchGames();
+    }
+});
+
+// Debounce function for search input
+function debounce(func, delay) {
+    let timeoutId;
+    return function (...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delay);
+    };
+}
+
+// Apply debounce to search input
+searchInput.addEventListener('input', debounce(searchGames, 300));
 
 // Initial render: Sort and then render the games
 document.addEventListener('DOMContentLoaded', () => {
