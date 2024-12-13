@@ -1,112 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game List</title>
+    <title>Game Listing</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Game List</title>
-    <style>
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-        }
-        #acceptButton {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-        #acceptButton:hover {
-            opacity: 0.8;
-        }
-    </style>
 </head>
 <body>
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search games...">
-        <button id="searchButton">Search</button>
-        <button id="clearSearchButton">Clear</button>
-    </div>
-
-    <div class="filter-sort-container">
-        <div class="category-filter">
-            <button class="category-btn" data-category="all">All</button>
-            <button class="category-btn" data-category="action">Action</button>
-            <button class="category-btn" data-category="racing">Racing</button>
-            <button class="category-btn" data-category="idle">Idle</button>
-            <button class="category-btn" data-category="puzzle">Puzzle</button>
-            <button class="category-btn" data-category="sports">Sports</button>
-            <button class="category-btn" data-category="adventure">Adventure</button>
-            <button class="category-btn" data-category="arcade">Arcade</button>
+    <header>
+        <h1>Game Listings</h1>
+    </header>
+    <main>
+        <!-- Search Container -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search games...">
+            <button id="searchButton">Search</button>
+            <button id="clearSearchButton">Clear</button>
         </div>
 
-        <select id="sortSelect">
-            <option value="name">Name (A-Z)</option>
-            <option value="nameReverse">Name (Z-A)</option>
-            <option value="newest">Newest First</option>
-            <option value="oldest">Oldest First</option>
-        </select>
-    </div>
+        <!-- Filter and Sort Container -->
+        <div class="filter-sort-container">
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="action">Action</option>
+                <option value="puzzle">Puzzle</option>
+                <option value="adventure">Adventure</option>
+            </select>
+            <select id="sortSelect">
+                <option value="name">Sort by Name</option>
+                <option value="popularity">Sort by Popularity</option>
+            </select>
+        </div>
 
-    <div class="games-list">
-        <!-- Game items will be dynamically added here -->
-    </div>
+        <!-- Games List -->
+        <div class="games-list" id="gamesList"></div>
 
+        <!-- No Results Message -->
+        <div class="no-results-message" id="noResultsMessage" style="display: none;">
+            No games found. Try another search!
+        </div>
+    </main>
     <footer>
-        <p>&copy; 2024 Greenhoh1's Game List. All rights reserved.</p>
-        <nav>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Contact Us</a>
-        </nav>
+        <p>© 2024 Game Listings</p>
     </footer>
-
-    <div id="termsModal" class="modal">
-        <div class="modal-content">
-            <h2>Terms and Conditions</h2>
-            <p>Please read and accept our terms and conditions to continue:</p>
-            <p>1. By using this website, you agree to our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.</p>
-            <p>2. You also agree to our <a href="terms-of-service.html" target="_blank">Terms of Service</a>.</p>
-            <button id="acceptButton">I Accept</button>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('termsModal');
-            const acceptButton = document.getElementById('acceptButton');
-
-            // Check if user has already accepted
-            if (!localStorage.getItem('termsAccepted')) {
-                modal.style.display = 'block';
-            }
-
-            acceptButton.onclick = function() {
-                localStorage.setItem('termsAccepted', 'true');
-                modal.style.display = 'none';
-            }
-        });
-    </script>
-
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
