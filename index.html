@@ -3,46 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Listing</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Greenhoh1's Game Hosting</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Game Listings</h1>
-    </header>
+        <h1>Greenhoh1's Game Hosting</h1>
+        <p>Explore and play amazing games directly in your browser!</p>             
+    </header>    
     <main>
-        <!-- Search Container -->
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search games...">
-            <button id="searchButton">Search</button>
-            <button id="clearSearchButton">Clear</button>
-        </div>
-
-        <!-- Filter and Sort Container -->
-        <div class="filter-sort-container">
-            <select id="categoryFilter">
-                <option value="all">All Categories</option>
-                <option value="action">Action</option>
-                <option value="puzzle">Puzzle</option>
-                <option value="adventure">Adventure</option>
-            </select>
-            <select id="sortSelect">
-                <option value="name">Sort by Name</option>
-                <option value="popularity">Sort by Popularity</option>
-            </select>
-        </div>
-
-        <!-- Games List -->
-        <div class="games-list" id="gamesList"></div>
-
-        <!-- No Results Message -->
-        <div class="no-results-message" id="noResultsMessage" style="display: none;">
-            No games found. Try another search!
-        </div>
+        
+        <div class="games-list">
+            <!-- Games will be dynamically listed here -->
+        </div>        
+        
     </main>
     <footer>
-        <p>© 2024 Game Listings</p>
+        <p>&copy; 2024 Greenhoh1's Game Hosting | Built with ❤️ and GitHub Pages</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
