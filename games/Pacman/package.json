@@ -26,7 +26,8 @@
   },
   "homepage": "https://github.com/masonicGIT/pacman#readme",
   "dependencies": {
-    "node": "^20.1.0"
+    "node": "^20.1.0",
+    "pacman": "file:"
   },
   "devDependencies": {
     "eslint": "8.40.0",
