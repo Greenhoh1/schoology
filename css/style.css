@@ -220,33 +220,3 @@ button {
     right: 0;
     z-index: 1000;
 }
-
-/* Styling for the countdown timer */
-#countdown-timer {
-    font-size: 18px;
-    color: #333;
-    padding: 10px;
-    margin: 20px 0;
-    text-align: center;
-}
-
-/* Styling for the countdown text when event is not live */
-#countdown-timer p {
-    margin: 0;
-}
-
-/* Optional: Style for the button to hide the banner */
-#event-banner button {
-    background-color: #ff6600;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
-}
-
-/* Optional: Add hover effect on the button */
-#event-banner button:hover {
-    background-color: #e55a00;
-}

@@ -138,14 +138,12 @@ const games = [
         thumbnail: 'games/BoxyRun/thumbnail.png',
         link: 'games/BoxyRun/index.html'
     },
-    // christmas games
     {
         title: 'Breakout',
-        description: 'A game where your goal is to break blocks that spawn in without letting the ball bounce to the bottom of the screen.',
-        thumbnail: 'games\Breakouts\breakouts\craftyjs\media\logo.png',
-        link: 'games\Breakouts\breakouts\craftyjs\index.html',
-        releaseDate: '2024-12-01' // Example: Visible starting from Dec 1, 2024
-    },
+        description: 'Pass through diffrent levels and dont let the ball reach the bottom of the screen.',
+        thumbnail: 'games/Breakouts/breakouts/enchantjs/resources/logo.png',
+        link: 'games/Breakouts/breakouts/enchantjs/index.html'
+    }
 ];
 
 // Grab the required DOM elements
