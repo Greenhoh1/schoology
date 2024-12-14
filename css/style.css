@@ -261,6 +261,15 @@ button {
     background-color: #e53935;
 }
 
+/* No Results Found message */
+.no-results-message {
+    text-align: center;
+    color: #888;
+    font-size: 18px;
+    font-weight: bold;
+    grid-column: span 4;
+}
+
 /* For better alignment and responsiveness */
 @media (max-width: 768px) {
     .search-container {

@@ -185,13 +185,27 @@ function renderGames(filteredGames) {
 }
 
 // Function to filter games based on search input
-function filterGames() {
-    const query = searchInput.value.toLowerCase();
+function filterGames(query) {
     const filteredGames = games.filter(game => 
         game.title.toLowerCase().includes(query) || 
         game.description.toLowerCase().includes(query)
     );
     renderGames(filteredGames);
+}
+
+// Function to get the query from the URL
+function getQueryParameter(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// Initialize with games based on the URL query
+const query = getQueryParameter('search');
+if (query) {
+    searchInput.value = query;
+    filterGames(query.toLowerCase());
+} else {
+    renderGames(games);
 }
 
 // Check if the user has already accepted the TOS
@@ -214,8 +228,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Event listeners
-searchButton.addEventListener('click', filterGames);
+searchButton.addEventListener('click', () => {
+    const query = searchInput.value.trim();
+    if (query) {
+        window.history.pushState({}, '', `/?search=${query}`);
+        filterGames(query.toLowerCase());
+    }
+});
+
 clearSearchButton.addEventListener('click', () => {
     searchInput.value = '';
+    window.history.pushState({}, '', '/');
     renderGames(games); // Show all games when cleared
 });
