@@ -146,7 +146,7 @@ const games = [
     }
 ];
 
-// Grab the required DOM elements
+// Get DOM elements
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 const clearSearchButton = document.getElementById('clearSearchButton');
@@ -165,25 +165,34 @@ function sortGamesAZ() {
 }
 
 // Function to render games
-        function renderGames(filteredGames) {
-            gamesList.innerHTML = ''; // Clear previous list
-            if (filteredGames.length === 0) {
-                gamesList.innerHTML = '<p class="no-results-message">No results found</p>';
-            } else {
-                filteredGames.forEach(game => {
-                    const gameItem = document.createElement('div');
-                    gameItem.classList.add('game-item');
-                    gameItem.innerHTML = `
-                        <img src="${game.thumbnail}" alt="${game.title}">
-                        <h3>${game.title}</h3>
-                        <p>${game.description}</p>
-                        <a href="${game.link}" target="_blank">Play Game</a>
-                    `;
-                    gamesList.appendChild(gameItem);
-                });
-            }
-        }
+function renderGames(filteredGames) {
+    gamesList.innerHTML = ''; // Clear previous games
+    if (filteredGames.length === 0) {
+        gamesList.innerHTML = '<div class="no-results-message">No games found.</div>';
+    } else {
+        filteredGames.forEach(game => {
+            const gameItem = document.createElement('div');
+            gameItem.classList.add('game-item');
+            gameItem.innerHTML = `
+                <img src="${game.thumbnail}" alt="${game.title}">
+                <h3>${game.title}</h3>
+                <p>${game.description}</p>
+                <a href="${game.link}" target="_blank">Play Now</a>
+            `;
+            gamesList.appendChild(gameItem);
+        });
+    }
+}
 
+// Function to filter games based on search input
+function filterGames() {
+    const query = searchInput.value.toLowerCase();
+    const filteredGames = games.filter(game => 
+        game.title.toLowerCase().includes(query) || 
+        game.description.toLowerCase().includes(query)
+    );
+    renderGames(filteredGames);
+}
 
 // Check if the user has already accepted the TOS
 if (!localStorage.getItem('acceptedTOS')) {
@@ -204,15 +213,9 @@ document.addEventListener('DOMContentLoaded', () => {
     renderGames(sortGamesAZ());
 });
 
-// Search function
-searchButton.addEventListener('click', () => {
-    const searchTerm = searchInput.value.toLowerCase();
-    const filteredGames = games.filter(game => game.title.toLowerCase().includes(searchTerm));
-    renderGames(filteredGames);
-});
-
-// Clear search input
+// Event listeners
+searchButton.addEventListener('click', filterGames);
 clearSearchButton.addEventListener('click', () => {
     searchInput.value = '';
-    renderGames(games);
+    renderGames(games); // Show all games when cleared
 });
