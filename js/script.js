@@ -147,9 +147,10 @@ const games = [
 ];
 
 // Grab the required DOM elements
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const clearSearchButton = document.getElementById('clearSearchButton');
 const gamesList = document.querySelector('.games-list');
-const tosModal = document.getElementById('tosModal');
-const acceptButton = document.getElementById('acceptTOS');
 
 // Function to check if a game is available based on the current date
 function isGameAvailable(game) {
@@ -163,33 +164,26 @@ function sortGamesAZ() {
     return [...games].sort((a, b) => a.title.localeCompare(b.title));
 }
 
-// Render games dynamically, showing only those that are available based on the release date
-function renderGames(gameList = games) {
-    gamesList.innerHTML = ''; // Clear the game list
-
-    if (gameList.length === 0) {
-        gamesList.innerHTML = '<div class="no-results-message">No results found.</div>';
-        return;
-    }
-
-    gameList.forEach(game => {
-        // Filter out games not yet released
-        if (!isGameAvailable(game)) {
-            return;
+// Function to render games
+        function renderGames(filteredGames) {
+            gamesList.innerHTML = ''; // Clear previous list
+            if (filteredGames.length === 0) {
+                gamesList.innerHTML = '<p class="no-results-message">No results found</p>';
+            } else {
+                filteredGames.forEach(game => {
+                    const gameItem = document.createElement('div');
+                    gameItem.classList.add('game-item');
+                    gameItem.innerHTML = `
+                        <img src="${game.thumbnail}" alt="${game.title}">
+                        <h3>${game.title}</h3>
+                        <p>${game.description}</p>
+                        <a href="${game.link}" target="_blank">Play Game</a>
+                    `;
+                    gamesList.appendChild(gameItem);
+                });
+            }
         }
 
-        const gameItem = document.createElement('div');
-        gameItem.classList.add('game-item');
-
-        gameItem.innerHTML = `
-            <img src="${game.thumbnail}" alt="${game.title} Thumbnail" loading="lazy">
-            <h3>${game.title}</h3>
-            <p>${game.description}</p>
-            <a href="${game.link}" target="_blank">Play Now</a>
-        `;
-        gamesList.appendChild(gameItem);
-    });
-}
 
 // Check if the user has already accepted the TOS
 if (!localStorage.getItem('acceptedTOS')) {
@@ -210,66 +204,15 @@ document.addEventListener('DOMContentLoaded', () => {
     renderGames(sortGamesAZ());
 });
 
-// Countdown Timer Setup
-let timerElement = document.getElementById('timer');
-let christmasTime = new Date("December 14, 2024 17:00:00").getTime();
-let timerInterval;
-
-// Function to update the timer and apply Christmas theme
-function updateTimer() {
-    let now = new Date().getTime();
-    let timeLeft = christmasTime - now;
-    
-    let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-    
-    timerElement.innerHTML = "Timer: " + hours + ":" + minutes + ":" + seconds;
-
-    if (timeLeft <= 0) {
-        clearInterval(timerInterval);
-        applyChristmasTheme();
-    }
-}
-
-// Apply Christmas Theme
-function applyChristmasTheme() {
-    document.body.classList.add("christmas-theme");
-    timerElement.innerHTML = "Merry Christmas!";
-}
-
-// Start the countdown timer
-timerInterval = setInterval(updateTimer, 1000);
-
-// Search Bar functionality
-document.getElementById('searchBar').addEventListener('input', function() {
-    let searchTerm = this.value.toLowerCase();
-    let gameItems = document.querySelectorAll('.game-item');
-    
-    gameItems.forEach(function(item) {
-        let gameName = item.textContent.toLowerCase();
-        if (gameName.includes(searchTerm)) {
-            item.style.display = 'list-item';
-        } else {
-            item.style.display = 'none';
-        }
-    });
+// Search function
+searchButton.addEventListener('click', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredGames = games.filter(game => game.title.toLowerCase().includes(searchTerm));
+    renderGames(filteredGames);
 });
 
-// Function to generate snowflakes on the screen
-function generateSnowflakes() {
-    const snowContainer = document.querySelector('.snow');
-    for (let i = 0; i < 100; i++) {
-        let snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        snowflake.style.left = Math.random() * 100 + '%';
-        snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
-        snowflake.style.animationDelay = Math.random() * 10 + 's';
-        snowContainer.appendChild(snowflake);
-    }
-}
-
-// Call the snowflake generation function when the page loads
-document.addEventListener('DOMContentLoaded', function () {
-    generateSnowflakes();
+// Clear search input
+clearSearchButton.addEventListener('click', () => {
+    searchInput.value = '';
+    renderGames(games);
 });

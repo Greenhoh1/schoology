@@ -7,91 +7,19 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Default Style */
-        body {
-            font-family: 'Nunito', sans-serif;
-            transition: background-color 0.5s, color 0.5s;
-        }
-        header {
-            text-align: center;
-            padding: 20px;
-            font-size: 2em;
-        }
-        .content {
-            padding: 20px;
-        }
-        .games-list {
-            padding: 20px;
-            text-align: center;
-        }
-        
-        /* Timer Styles */
-        #timer {
-            font-size: 2em;
-            text-align: center;
-            margin: 20px;
-        }
-
-        /* Christmas Theme */
-        .christmas-theme {
-            background-color: #ff0000;
-            color: white;
-            background-image: url('christmas-bg.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        .christmas-theme header {
-            color: #00ff00;
-        }
-        .christmas-theme .banner {
-            background: url('christmas-banner.jpg') no-repeat center center;
-            background-size: cover;
-        }
-        .christmas-theme .games-list {
-            text-align: center;
-            color: white;
-        }
-        .christmas-theme #timer {
-            color: #00ff00;
-        }
-
-        /* Search Bar Styles */
-        .search-container {
-            text-align: center;
-            margin: 20px;
-        }
-        .search-bar {
-            padding: 10px;
-            width: 250px;
-            font-size: 1em;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            outline: none;
-            transition: border 0.3s;
-        }
-        .search-bar:focus {
-            border-color: #00ff00;
-        }
-    </style>
 </head>
 <body>
     <header>
-        <div class="banner">Greenhoh1's Game Hosting</div>
-        <p>Explore and play amazing games directly in your browser!</p>
-    </header>
-
-    <div class="snow">
-        <!-- Snowflakes will be generated here by JS -->
-    </div>    
-
-    <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" id="searchBar" class="search-bar" placeholder="Search games...">
-    </div>
-    
-    <main class="content">
-        <div id="timer">Timer: 00:10:00</div>
+        <h1>Greenhoh1's Game Hosting</h1>
+        <p>Explore and play amazing games directly in your browser!</p>       
+    </header>    
+    <main>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search games...">
+            <button id="searchButton">Search</button>
+            <button id="clearSearchButton">Clear</button>
+        </div>
 
         <!-- Modal for Terms of Service -->
         <div id="tosModal" class="tos-modal">
@@ -105,22 +33,14 @@
             </div>
         </div>
 
-        <div class="games-list" id="gamesList">
-            <h2>Available Games</h2>
-            <ul>
-                <li class="game-item">Game 1</li>
-                <li class="game-item">Game 2</li>
-                <li class="game-item">Game 3</li>
-                <li class="game-item">Game 4</li>
-                <li class="game-item">Game 5</li>
-            </ul>
+        <div class="games-list">
+            <!-- Games will be dynamically listed here -->
         </div>        
+        
     </main>
-    
     <footer>
         <p>&copy; 2024 Greenhoh1's Game Hosting | Built with ❤️ and GitHub Pages</p>
     </footer>
-
-    <script src="js/script.js"></script> <!-- Link to script.js -->
+    <script src="js/script.js"></script>
 </body>
 </html>
