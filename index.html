@@ -55,13 +55,41 @@
         .christmas-theme #timer {
             color: #00ff00;
         }
+
+        /* Search Bar Styles */
+        .search-container {
+            text-align: center;
+            margin: 20px;
+        }
+        .search-bar {
+            padding: 10px;
+            width: 250px;
+            font-size: 1em;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border 0.3s;
+        }
+        .search-bar:focus {
+            border-color: #00ff00;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="banner">Greenhoh1's Game Hosting</div>
         <p>Explore and play amazing games directly in your browser!</p>
-    </header>    
+    </header>
+
+    <div class="snow">
+        <!-- Snowflakes will be generated here by JS -->
+    </div>    
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchBar" class="search-bar" placeholder="Search games...">
+    </div>
+    
     <main class="content">
         <div id="timer">Timer: 00:10:00</div>
 
@@ -77,44 +105,22 @@
             </div>
         </div>
 
-        <div class="games-list">
+        <div class="games-list" id="gamesList">
             <h2>Available Games</h2>
-            <p>Games will be dynamically listed here soon!</p>
+            <ul>
+                <li class="game-item">Game 1</li>
+                <li class="game-item">Game 2</li>
+                <li class="game-item">Game 3</li>
+                <li class="game-item">Game 4</li>
+                <li class="game-item">Game 5</li>
+            </ul>
         </div>        
     </main>
+    
     <footer>
         <p>&copy; 2024 Greenhoh1's Game Hosting | Built with ❤️ and GitHub Pages</p>
     </footer>
 
-    <script>
-        // Countdown Timer Setup
-        let timerElement = document.getElementById('timer');
-        let christmasTime = new Date("December 14, 2024 16:55:00").getTime();
-        
-        function updateTimer() {
-            let now = new Date().getTime();
-            let timeLeft = christmasTime - now;
-            
-            let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
-            timerElement.innerHTML = "Timer: " + hours + ":" + minutes + ":" + seconds;
-
-            if (timeLeft <= 0) {
-                clearInterval(timerInterval);
-                applyChristmasTheme();
-            }
-        }
-        
-        // Apply Christmas Theme
-        function applyChristmasTheme() {
-            document.body.classList.add("christmas-theme");
-            timerElement.innerHTML = "Merry Christmas!";
-        }
-
-        // Start the countdown timer
-        let timerInterval = setInterval(updateTimer, 1000);
-    </script>
+    <script src="js/script.js"></script> <!-- Link to script.js -->
 </body>
 </html>

@@ -209,3 +209,67 @@ acceptButton.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     renderGames(sortGamesAZ());
 });
+
+// Countdown Timer Setup
+let timerElement = document.getElementById('timer');
+let christmasTime = new Date("December 14, 2024 17:00:00").getTime();
+let timerInterval;
+
+// Function to update the timer and apply Christmas theme
+function updateTimer() {
+    let now = new Date().getTime();
+    let timeLeft = christmasTime - now;
+    
+    let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    
+    timerElement.innerHTML = "Timer: " + hours + ":" + minutes + ":" + seconds;
+
+    if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        applyChristmasTheme();
+    }
+}
+
+// Apply Christmas Theme
+function applyChristmasTheme() {
+    document.body.classList.add("christmas-theme");
+    timerElement.innerHTML = "Merry Christmas!";
+}
+
+// Start the countdown timer
+timerInterval = setInterval(updateTimer, 1000);
+
+// Search Bar functionality
+document.getElementById('searchBar').addEventListener('input', function() {
+    let searchTerm = this.value.toLowerCase();
+    let gameItems = document.querySelectorAll('.game-item');
+    
+    gameItems.forEach(function(item) {
+        let gameName = item.textContent.toLowerCase();
+        if (gameName.includes(searchTerm)) {
+            item.style.display = 'list-item';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+
+// Function to generate snowflakes on the screen
+function generateSnowflakes() {
+    const snowContainer = document.querySelector('.snow');
+    for (let i = 0; i < 100; i++) {
+        let snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = Math.random() * 100 + '%';
+        snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+        snowflake.style.animationDelay = Math.random() * 10 + 's';
+        snowContainer.appendChild(snowflake);
+    }
+}
+
+// Call the snowflake generation function when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+    generateSnowflakes();
+});

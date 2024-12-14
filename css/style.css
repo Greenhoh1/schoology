@@ -220,3 +220,81 @@ button {
     right: 0;
     z-index: 1000;
 }
+
+/* Christmas Theme */
+.christmas-theme {
+    background-color: #f1f1f1; /* Light background */
+    color: #ff0000; /* Red text for Christmas feel */
+    background-image: url('path/to/subtle-snowflakes.png'); /* Add a light snowflake background */
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Additional small decorations */
+.christmas-theme h3,
+.christmas-theme p {
+    color: #006400; /* Dark green for headings and descriptions */
+}
+
+/* Add small decorations or borders for emphasis */
+.christmas-theme .game-item {
+    border: 2px solid #ff0000; /* Red border around game items */
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.christmas-theme .game-item:hover {
+    background-color: #ffcccc; /* Light red hover effect */
+}
+
+.christmas-theme #timer {
+    color: #ffcc00; /* Yellow timer text */
+    font-weight: bold;
+}
+
+/* Optional: Add snow falling effect */
+@keyframes snow {
+    0% { transform: translateY(-10px); }
+    100% { transform: translateY(100%); }
+}
+
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    animation: snow 10s infinite linear;
+}
+
+/* Snowflakes */
+.snowflake {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall 10s infinite linear;
+}
+
+.snowflake:nth-child(odd) {
+    width: 12px;
+    height: 12px;
+    background-color: #a9a9a9;
+}
+
+@keyframes fall {
+    0% {
+        top: -10px;
+        left: 0;
+    }
+    100% {
+        top: 100%;
+        left: calc(100% * random());
+    }
+}
