@@ -44,36 +44,48 @@
         <script>
             // Define the release date (event date)
             let eventDate = new Date('2024-12-15T00:00:00');  // December 16, 2024 at 12:00 AM (midnight)
+            let eventHasStarted = false; // Boolean to track if the event has started
 
-            // Banner element
-            const banner = document.getElementById('banner');
-            const countdownElement = document.getElementById('countdown');
-
-            // Function to update the countdown
-            function updateCountdown() {
+            // Check if the event date has passed
+            function checkEventStatus() {
                 let currentDate = new Date();
-                let timeDifference = eventDate - currentDate;
-
-                if (timeDifference <= 0) {
-                    // If the event is live, show the banner
-                    banner.style.display = 'block';
-                    countdownElement.innerHTML = "<div class='released'>The event is now live! 🎉</div>";
+                if (currentDate >= eventDate) {
+                    eventHasStarted = true; // Event is live
+                    showBanner(); // Show the banner
                 } else {
-                    // Calculate days, hours, minutes, and seconds
-                    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                    let seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-                    countdownElement.innerHTML = `<div class="countdown">Event coming in: ${days}d ${hours}h ${minutes}m ${seconds}s</div>`;
+                    eventHasStarted = false; // Event is not live yet
+                    startCountdown(); // Start the countdown
                 }
             }
 
-            // Update countdown every second
-            setInterval(updateCountdown, 1000);
+            // Countdown function
+            function startCountdown() {
+                let countdownElement = document.getElementById('countdown-timer');
+                let timeLeft = eventDate - new Date(); // Calculate the time left
+                let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            // Initial countdown update
-            updateCountdown();
+                countdownElement.innerHTML = `Event starts in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            // Function to show the banner when event is live
+            function showBanner() {
+                document.getElementById('event-banner').style.display = 'block';
+                document.getElementById('countdown-timer').style.display = 'none'; // Hide countdown once event is live
+            }
+
+            // Function to hide the banner (if necessary)
+            function hideBanner() {
+                document.getElementById('event-banner').style.display = 'none';
+            }
+
+            // Initial check when the page loads
+            document.addEventListener('DOMContentLoaded', () => {
+                checkEventStatus();
+                setInterval(checkEventStatus, 1000); // Check every second to update countdown
+            });
         </script>
         
         <!-- Modal for Terms of Service -->
