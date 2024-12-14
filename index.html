@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greenhoh1's Game Hosting</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>10 Games of Christmas</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Greenhoh1's Game Hosting</h1>
-        <p>Explore and play amazing games directly in your browser!</p>             
-    </header>    
-    <main>
-        
-        <div class="games-list">
-            <!-- Games will be dynamically listed here -->
-        </div>        
-        
-    </main>
+    <div class="event-banner">
+        <h1>The 10 Games of Christmas</h1>
+        <p>New game every day until Christmas!</p>
+    </div>
+
+    <!-- Christmas Games Section -->
+    <div class="games-list" id="christmasGamesList">
+        <!-- Christmas Games will be injected here -->
+    </div>
+
+    <div class="games-list" id="gamesList">
+        <!-- Game items will be injected by JavaScript -->
+    </div>
+
     <footer>
         <p>&copy; 2024 Greenhoh1's Game Hosting | Built with ❤️ and GitHub Pages</p>
     </footer>
-    <script src="js/script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>

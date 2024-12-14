@@ -174,3 +174,109 @@ function renderGames(gameList = games) {
 document.addEventListener('DOMContentLoaded', () => {
     renderGames(sortGamesAZ()); // Automatically sort games alphabetically when the page loads
 });
+
+// XMAS CODE DOWN HERE
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Christmas Games List
+    const christmasGames = [
+        {
+            title: 'Game 1',
+            description: 'First game of the event',
+            thumbnail: 'games/game1/thumbnail.jpg',
+            link: 'games/game1/game1.html',
+            release_date: '2024-12-16'
+        },
+        {
+            title: 'Game 2',
+            description: 'Second game of the event',
+            thumbnail: 'games/game2/thumbnail.jpg',
+            link: 'games/game2/game2.html',
+            release_date: '2024-12-17'
+        },
+        {
+            title: 'Game 3',
+            description: 'Third game of the event',
+            thumbnail: 'games/game3/thumbnail.jpg',
+            link: 'games/game3/game3.html',
+            release_date: '2024-12-18'
+        },
+        {
+            title: 'Game 4',
+            description: 'Fourth game of the event',
+            thumbnail: 'games/game4/thumbnail.jpg',
+            link: 'games/game4/game4.html',
+            release_date: '2024-12-19'
+        },
+        {
+            title: 'Game 5',
+            description: 'Fifth game of the event',
+            thumbnail: 'games/game5/thumbnail.jpg',
+            link: 'games/game5/game5.html',
+            release_date: '2024-12-20'
+        },
+        {
+            title: 'Game 6',
+            description: 'Sixth game of the event',
+            thumbnail: 'games/game6/thumbnail.jpg',
+            link: 'games/game6/game6.html',
+            release_date: '2024-12-21'
+        },
+        {
+            title: 'Game 7',
+            description: 'Seventh game of the event',
+            thumbnail: 'games/game7/thumbnail.jpg',
+            link: 'games/game7/game7.html',
+            release_date: '2024-12-22'
+        },
+        {
+            title: 'Game 8',
+            description: 'Eighth game of the event',
+            thumbnail: 'games/game8/thumbnail.jpg',
+            link: 'games/game8/game8.html',
+            release_date: '2024-12-23'
+        },
+        {
+            title: 'Game 9',
+            description: 'Ninth game of the event',
+            thumbnail: 'games/game9/thumbnail.jpg',
+            link: 'games/game9/game9.html',
+            release_date: '2024-12-24'
+        },
+        {
+            title: 'Game 10',
+            description: 'Tenth game of the event',
+            thumbnail: 'games/game10/thumbnail.jpg',
+            link: 'games/game10/game10.html',
+            release_date: '2024-12-25'
+        }
+    ];
+
+    // Grab the divs where games will be injected
+    const christmasGamesList = document.getElementById('christmasGamesList');
+    const currentDate = new Date().toISOString().split('T')[0];  // Get current date in YYYY-MM-DD format
+
+    // Render Christmas Games
+    christmasGames.forEach(game => {
+        const gameItem = document.createElement('div');
+        gameItem.classList.add('game-item');
+
+        if (game.release_date <= currentDate) {
+            // Game is available
+            gameItem.innerHTML = `
+                <img src="${game.thumbnail}" alt="${game.title}">
+                <h3>${game.title}</h3>
+                <p>${game.description}</p>
+                <a href="${game.link}">Play Now</a>
+            `;
+        } else {
+            // Game is coming soon
+            gameItem.innerHTML = `
+                <img src="${game.thumbnail}" alt="${game.title}">
+                <h3>${game.title}</h3>
+                <p>Coming soon on ${game.release_date}</p>
+            `;
+        }
+
+        christmasGamesList.appendChild(gameItem);
+    })});
