@@ -137,7 +137,15 @@ const games = [
         description: 'The objective of the game is to jump and shuffle to avoid the trees. The 3D Graphics are powered by Three.js, which provides the camera, lights, and basic geometries required to create the scene.',
         thumbnail: 'games/BoxyRun/thumbnail.png',
         link: 'games/BoxyRun/index.html'
-    }
+    },
+    // christmas games
+    {
+        title: 'Breakout',
+        description: 'A game where your goal is to break blocks that spawn in without letting the ball bounce to the bottom of the screen.',
+        thumbnail: 'games\Breakouts\breakouts\craftyjs\media\logo.png',
+        link: 'games\Breakouts\breakouts\craftyjs\index.html',
+        releaseDate: '2024-12-01' // Example: Visible starting from Dec 1, 2024
+    },
 ];
 
 // Grab the required DOM elements
@@ -145,12 +153,19 @@ const gamesList = document.querySelector('.games-list');
 const tosModal = document.getElementById('tosModal');
 const acceptButton = document.getElementById('acceptTOS');
 
-// Sort games alphabetically A-Z by title
+// Function to check if a game is available based on the current date
+function isGameAvailable(game) {
+    const currentDate = new Date();
+    const releaseDate = new Date(game.releaseDate);
+    return !game.releaseDate || currentDate >= releaseDate; // Show if no releaseDate or releaseDate is in the past
+}
+
+// Sort games alphabetically by title
 function sortGamesAZ() {
     return [...games].sort((a, b) => a.title.localeCompare(b.title));
 }
 
-// Render games dynamically
+// Render games dynamically, showing only those that are available based on the release date
 function renderGames(gameList = games) {
     gamesList.innerHTML = ''; // Clear the game list
 
@@ -160,8 +175,14 @@ function renderGames(gameList = games) {
     }
 
     gameList.forEach(game => {
+        // Filter out games not yet released
+        if (!isGameAvailable(game)) {
+            return;
+        }
+
         const gameItem = document.createElement('div');
         gameItem.classList.add('game-item');
+
         gameItem.innerHTML = `
             <img src="${game.thumbnail}" alt="${game.title} Thumbnail" loading="lazy">
             <h3>${game.title}</h3>
@@ -171,11 +192,6 @@ function renderGames(gameList = games) {
         gamesList.appendChild(gameItem);
     });
 }
-
-// Initial render: Sort and then render the games
-document.addEventListener('DOMContentLoaded', () => {
-    renderGames(sortGamesAZ()); // Automatically sort games alphabetically when the page loads
-});
 
 // Check if the user has already accepted the TOS
 if (!localStorage.getItem('acceptedTOS')) {
@@ -189,4 +205,9 @@ acceptButton.addEventListener('click', () => {
     localStorage.setItem('acceptedTOS', 'true');
     // Hide the modal
     tosModal.style.display = 'none';
+});
+
+// Initial render: Sort and then render the games
+document.addEventListener('DOMContentLoaded', () => {
+    renderGames(sortGamesAZ());
 });

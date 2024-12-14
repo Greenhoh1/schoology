@@ -42,50 +42,87 @@
         <div id="banner">The event is now live! 🎉</div>
 
         <script>
-            // Define the release date (event date)
-            let eventDate = new Date('2024-12-15T00:00:00');  // December 16, 2024 at 12:00 AM (midnight)
-            let eventHasStarted = false; // Boolean to track if the event has started
+            // Event settings
+                let eventDate = new Date('2024-12-16T00:00:00'); // Event start date
 
-            // Check if the event date has passed
-            function checkEventStatus() {
-                let currentDate = new Date();
-                if (currentDate >= eventDate) {
-                    eventHasStarted = true; // Event is live
-                    showBanner(); // Show the banner
-                } else {
-                    eventHasStarted = false; // Event is not live yet
-                    startCountdown(); // Start the countdown
+                // Game release dates (example, adjust to your needs)
+                let gameReleaseDates = [
+                    new Date('2024-12-16T00:00:00'),
+                    new Date('2024-12-17T00:00:00'),
+                    new Date('2024-12-18T00:00:00'),
+                    new Date('2024-12-19T00:00:00'),
+                    new Date('2024-12-20T00:00:00'),
+                    new Date('2024-12-21T00:00:00'),
+                    new Date('2024-12-22T00:00:00'),
+                    new Date('2024-12-23T00:00:00'),
+                    new Date('2024-12-24T00:00:00'),
+                    new Date('2024-12-25T00:00:00')
+                ];
+
+                let eventHasStarted = false; // Boolean to track if the event has started
+
+                // Check if the event date has passed
+                function checkEventStatus() {
+                    let currentDate = new Date();
+                    if (currentDate >= eventDate && !eventHasStarted) {
+                        eventHasStarted = true; // Event is live
+                        showEventBanner(); // Show the event banner
+                        startGameCountdowns(); // Start countdowns for each game
+                    } else if (currentDate >= gameReleaseDates[9]) {
+                        // If all games have been released, hide the countdown
+                        hideEventBanner();
+                    }
                 }
-            }
 
-            // Countdown function
-            function startCountdown() {
-                let countdownElement = document.getElementById('countdown-timer');
-                let timeLeft = eventDate - new Date(); // Calculate the time left
-                let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                // Function to start countdowns for each game
+                function startGameCountdowns() {
+                    gameReleaseDates.forEach((gameDate, index) => {
+                        startGameCountdown(gameDate, index);
+                    });
+                }
 
-                countdownElement.innerHTML = `Event starts in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }
+                // Function to start countdown for each individual game
+                function startGameCountdown(gameDate, gameIndex) {
+                    let countdownElement = document.getElementById(`countdown-game-${gameIndex}`);
+                    let gameContent = document.getElementById(`game-${gameIndex}`);
+                    
+                    function updateCountdown() {
+                        let timeLeft = gameDate - new Date(); // Calculate the time left for the game
+                        if (timeLeft <= 0) {
+                            // If time is up, show the game and stop the countdown
+                            gameContent.style.display = 'block';
+                            countdownElement.style.display = 'none'; // Hide the countdown
+                        } else {
+                            // Otherwise, update the countdown
+                            let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                            let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                            let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            // Function to show the banner when event is live
-            function showBanner() {
-                document.getElementById('event-banner').style.display = 'block';
-                document.getElementById('countdown-timer').style.display = 'none'; // Hide countdown once event is live
-            }
+                            countdownElement.innerHTML = `Game ${gameIndex + 1} releases in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                        }
+                    }
+                    
+                    // Update countdown every second
+                    setInterval(updateCountdown, 1000);
+                }
 
-            // Function to hide the banner (if necessary)
-            function hideBanner() {
-                document.getElementById('event-banner').style.display = 'none';
-            }
+                // Function to show the event banner when event starts
+                function showEventBanner() {
+                    document.getElementById('event-banner').style.display = 'block';
+                    document.getElementById('countdown-timer').style.display = 'none'; // Hide event countdown
+                }
 
-            // Initial check when the page loads
-            document.addEventListener('DOMContentLoaded', () => {
-                checkEventStatus();
-                setInterval(checkEventStatus, 1000); // Check every second to update countdown
-            });
+                // Function to hide the event banner
+                function hideEventBanner() {
+                    document.getElementById('event-banner').style.display = 'none';
+                }
+
+                // Initial check when the page loads
+                document.addEventListener('DOMContentLoaded', () => {
+                    checkEventStatus();
+                    setInterval(checkEventStatus, 1000); // Check every second to update countdowns
+                });
         </script>
         
         <!-- Modal for Terms of Service -->
