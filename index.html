@@ -3,58 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greenhoh1's Game Hosting</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Play amazing browser games at Greenhoh1's Game Hosting">
+    <meta name="keywords" content="browser games, online games, free games">
+    <title>Greenhoh1's Game Hosting - Play Free Browser Games</title>
+
+    <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+
     <style>
-        /* Countdown Timer */
-        #countdownTimer {
-            position: fixed;
-            top: 60px; /* Adjusted for better spacing */
-            width: 100%;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 1.2rem;
-            font-family: 'Nunito', sans-serif;
-            z-index: 1000;
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --text-light: #ffffff;
+            --text-dark: #333333;
         }
 
-        /* Christmas Banner */
+        /* Enhanced Banner Styles */
         #christmasBanner {
             position: fixed;
             top: 0;
             width: 100%;
             height: 60px;
-            background-image: url('christmas_banner.png');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
+            background: linear-gradient(45deg, #c4183c, #28a745);
+            animation: gradientFlow 5s infinite;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-size: 1.2rem;
+            color: var(--text-light);
+            font-size: 1.3rem;
             font-weight: bold;
-            font-family: 'Nunito', sans-serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add text shadow for better visibility */
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for better text visibility */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             z-index: 1001;
         }
 
-        /* Content Margin Adjustment */
-        header {
-            margin-top: 120px; /* Push content below both banners */
+        /* Improved Timer Styles */
+        #countdownTimer {
+            position: fixed;
+            top: 60px;
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 0;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
         }
 
-        /* Responsiveness */
+        /* Game Card Styles */
+        .game-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Animation Keyframes */
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            #christmasBanner {
-                font-size: 1rem; /* Smaller text on smaller screens */
+            .game-card {
+                margin: 10px;
+                padding: 15px;
             }
-            #countdownTimer {
+
+            #christmasBanner, #countdownTimer {
                 font-size: 1rem;
             }
         }
