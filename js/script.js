@@ -149,6 +149,12 @@ const games = [
         description: 'an idle/management game where you control a cute monkey character who is in charge of a supermarket.',
         thumbnail: 'games/MonkeyMart/thumbnail.png',
         link: 'games/MonkeyMart/index.html'
+    },*/
+   /*{
+        title: 'Snow Rider 3D',
+        description: 'an exhilarating snowboarding experience.',
+        thumbnail: 'ggames/SnowRider3D/thumbnail.png',
+        link: 'ggames/SnowRider3D/index.html'
     }*/
 ];
 
