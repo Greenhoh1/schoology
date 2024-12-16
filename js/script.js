@@ -146,77 +146,83 @@ const games = [
     }
 ];
 
-// Get DOM elements
-const gamesList = document.querySelector('.games-list');
-const tosModal = document.getElementById('tosModal');
-const acceptButton = document.getElementById('acceptTOS');
+// DOM Elements
+const DOM = {
+    gamesList: document.querySelector('.games-list'),
+    tosModal: document.getElementById('tosModal'),
+    acceptButton: document.getElementById('acceptTOS'),
+    searchInput: document.getElementById('searchInput'),
+    searchButton: document.getElementById('searchButton'),
+    clearSearchButton: document.getElementById('clearSearchButton')
+};
 
-// Function to check if a game is available based on the current date
-function isGameAvailable(game) {
-    const currentDate = new Date();
-    const releaseDate = new Date(game.releaseDate);
-    return !game.releaseDate || currentDate >= releaseDate; // Show if no releaseDate or releaseDate is in the past
-}
+// Game Functions
+const gameManager = {
+    sortGamesAlphabetically() {
+        return [...games].sort((a, b) => a.title.localeCompare(b.title));
+    },
 
-// Sort games alphabetically by title
-function sortGamesAZ() {
-    return [...games].sort((a, b) => a.title.localeCompare(b.title));
-}
+    filterGames(searchQuery) {
+        const query = searchQuery.toLowerCase();
+        const filteredGames = games.filter(game => 
+            game.title.toLowerCase().includes(query) || 
+            game.description.toLowerCase().includes(query)
+        );
+        this.renderGames(filteredGames);
+    },
 
-// Function to render games
-function renderGames(filteredGames) {
-    gamesList.innerHTML = ''; // Clear previous games
-    if (filteredGames.length === 0) {
-        gamesList.innerHTML = '<div class="no-results-message">No games found.</div>';
-    } else {
-        filteredGames.forEach(game => {
-            const gameItem = document.createElement('div');
-            gameItem.classList.add('game-item');
-            gameItem.innerHTML = `
-                <img src="${game.thumbnail}" alt="${game.title}">
-                <h3>${game.title}</h3>
-                <p>${game.description}</p>
-                <a href="${game.link}" target="_blank">Play Now</a>
-            `;
-            gamesList.appendChild(gameItem);
+    renderGames(gamesToRender) {
+        DOM.gamesList.innerHTML = gamesToRender.length === 0 
+            ? '<div class="no-results-message">No games found.</div>'
+            : gamesToRender.map(game => `
+                <div class="game-item">
+                    <img src="${game.thumbnail}" alt="${game.title}">
+                    <h3>${game.title}</h3>
+                    <p>${game.description}</p>
+                    <a href="${game.link}" target="_blank">Play Now</a>
+                </div>
+            `).join('');
+    }
+};
+
+// Terms of Service Handler
+const tosHandler = {
+    init() {
+        if (!localStorage.getItem('tosAccepted')) {
+            DOM.tosModal.style.display = 'block';
+        }
+    },
+
+    accept() {
+        localStorage.setItem('tosAccepted', 'true');
+        DOM.tosModal.style.display = 'none';
+    }
+};
+
+// Event Listeners
+const eventListeners = {
+    init() {
+        DOM.acceptButton.addEventListener('click', () => tosHandler.accept());
+
+        DOM.searchButton.addEventListener('click', () => {
+            const query = DOM.searchInput.value.trim();
+            if (query) {
+                window.history.pushState({}, '', `/?search=${query}`);
+                gameManager.filterGames(query);
+            }
+        });
+
+        DOM.clearSearchButton.addEventListener('click', () => {
+            DOM.searchInput.value = '';
+            window.history.pushState({}, '', '/');
+            gameManager.renderGames(games);
         });
     }
-}
+};
 
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the modal and button
-    const modal = document.getElementById('tosModal');
-    const acceptButton = document.getElementById('acceptTOS');
-
-    // Check if TOS has been accepted
-    if (!localStorage.getItem('tosAccepted')) {
-        modal.style.display = 'block';
-    }
-
-    // Add click event to accept button
-    acceptButton.addEventListener('click', function() {
-        localStorage.setItem('tosAccepted', 'true');
-        modal.style.display = 'none';
-    });
-});
-
-// Initial render: Sort and then render the games
+// Initialize Application
 document.addEventListener('DOMContentLoaded', () => {
-    renderGames(sortGamesAZ());
-});
-
-// Event listeners
-searchButton.addEventListener('click', () => {
-    const query = searchInput.value.trim();
-    if (query) {
-        window.history.pushState({}, '', `/?search=${query}`);
-        filterGames(query.toLowerCase());
-    }
-});
-
-clearSearchButton.addEventListener('click', () => {
-    searchInput.value = '';
-    window.history.pushState({}, '', '/');
-    renderGames(games); // Show all games when cleared
+    tosHandler.init();
+    eventListeners.init();
+    gameManager.renderGames(gameManager.sortGamesAlphabetically());
 });
