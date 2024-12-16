@@ -146,142 +146,77 @@ const games = [
     }
 ];
 
-// Game data configuration
-const GAMES_CONFIG = {
-    sortOrder: 'alphabetical',
-    defaultThumbnail: 'images/default-thumbnail.png'
-};
+// Get DOM elements
+const gamesList = document.querySelector('.games-list');
+const tosModal = document.getElementById('tosModal');
+const acceptButton = document.getElementById('acceptTOS');
 
-// DOM Elements using a more structured approach
-const DOM = {
-    gamesList: document.querySelector('.games-list'),
-    search: {
-        input: document.getElementById('searchInput'),
-        button: document.getElementById('searchButton'),
-        clearButton: document.getElementById('clearSearchButton')
-    },
-    tos: {
-        modal: document.getElementById('tosModal'),
-        acceptButton: document.getElementById('acceptTOS')
-    }
-};
+// Function to check if a game is available based on the current date
+function isGameAvailable(game) {
+    const currentDate = new Date();
+    const releaseDate = new Date(game.releaseDate);
+    return !game.releaseDate || currentDate >= releaseDate; // Show if no releaseDate or releaseDate is in the past
+}
 
-// Game Manager Class
-class GameManager {
-    constructor(games) {
-        this.games = games;
-        this.filteredGames = [...games];
-    }
+// Sort games alphabetically by title
+function sortGamesAZ() {
+    return [...games].sort((a, b) => a.title.localeCompare(b.title));
+}
 
-    sortGames() {
-        return [...this.games].sort((a, b) => a.title.localeCompare(b.title));
-    }
-
-    filterGames(searchQuery) {
-        const query = searchQuery.toLowerCase().trim();
-        this.filteredGames = this.games.filter(game => 
-            game.title.toLowerCase().includes(query) || 
-            game.description.toLowerCase().includes(query)
-        );
-        this.renderGames();
-    }
-
-    createGameCard(game) {
-        return `
-            <div class="game-item" data-game-id="${game.title.toLowerCase().replace(/\s+/g, '-')}">
-                <img src="${game.thumbnail}" alt="${game.title}" 
-                     onerror="this.src='${GAMES_CONFIG.defaultThumbnail}'">
+// Function to render games
+function renderGames(filteredGames) {
+    gamesList.innerHTML = ''; // Clear previous games
+    if (filteredGames.length === 0) {
+        gamesList.innerHTML = '<div class="no-results-message">No games found.</div>';
+    } else {
+        filteredGames.forEach(game => {
+            const gameItem = document.createElement('div');
+            gameItem.classList.add('game-item');
+            gameItem.innerHTML = `
+                <img src="${game.thumbnail}" alt="${game.title}">
                 <h3>${game.title}</h3>
                 <p>${game.description}</p>
-                <a href="${game.link}" class="play-button" target="_blank">Play Now</a>
-            </div>
-        `;
-    }
-
-    renderGames() {
-        const gameCards = this.filteredGames.length === 0 
-            ? '<div class="no-results">No games found. Try a different search.</div>'
-            : this.filteredGames.map(game => this.createGameCard(game)).join('');
-
-        DOM.gamesList.innerHTML = gameCards;
-        this.addGameCardListeners();
-    }
-
-    addGameCardListeners() {
-        document.querySelectorAll('.game-item').forEach(card => {
-            card.addEventListener('click', (e) => {
-                if (!e.target.classList.contains('play-button')) {
-                    const playButton = card.querySelector('.play-button');
-                    playButton.click();
-                }
-            });
+                <a href="${game.link}" target="_blank">Play Now</a>
+            `;
+            gamesList.appendChild(gameItem);
         });
-    }
-
-    init() {
-        this.filteredGames = this.sortGames();
-        this.renderGames();
     }
 }
 
-// Terms of Service Handler
-const TOSHandler = {
-    init() {
-        if (!localStorage.getItem('tosAccepted')) {
-            DOM.tos.modal.style.display = 'block';
-        }
-    },
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the modal and button
+    const modal = document.getElementById('tosModal');
+    const acceptButton = document.getElementById('acceptTOS');
 
-    accept() {
+    // Check if TOS has been accepted
+    if (!localStorage.getItem('tosAccepted')) {
+        modal.style.display = 'block';
+    }
+
+    // Add click event to accept button
+    acceptButton.addEventListener('click', function() {
         localStorage.setItem('tosAccepted', 'true');
-        DOM.tos.modal.style.display = 'none';
-    }
-};
+        modal.style.display = 'none';
+    });
+});
 
-// Search Handler
-const SearchHandler = {
-    init() {
-        this.addEventListeners();
-        this.checkUrlParams();
-    },
-
-    addEventListeners() {
-        DOM.search.button.addEventListener('click', () => this.performSearch());
-        DOM.search.input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') this.performSearch();
-        });
-        DOM.search.clearButton.addEventListener('click', () => this.clearSearch());
-    },
-
-    performSearch() {
-        const query = DOM.search.input.value.trim();
-        if (query) {
-            window.history.pushState({}, '', `/?search=${encodeURIComponent(query)}`);
-            gameManager.filterGames(query);
-        }
-    },
-
-    clearSearch() {
-        DOM.search.input.value = '';
-        window.history.pushState({}, '', '/');
-        gameManager.init();
-    },
-
-    checkUrlParams() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const searchQuery = urlParams.get('search');
-        if (searchQuery) {
-            DOM.search.input.value = searchQuery;
-            gameManager.filterGames(searchQuery);
-        }
-    }
-};
-
-// Initialize Application
-const gameManager = new GameManager(games);
-
+// Initial render: Sort and then render the games
 document.addEventListener('DOMContentLoaded', () => {
-    TOSHandler.init();
-    SearchHandler.init();
-    gameManager.init();
+    renderGames(sortGamesAZ());
+});
+
+// Event listeners
+searchButton.addEventListener('click', () => {
+    const query = searchInput.value.trim();
+    if (query) {
+        window.history.pushState({}, '', `/?search=${query}`);
+        filterGames(query.toLowerCase());
+    }
+});
+
+clearSearchButton.addEventListener('click', () => {
+    searchInput.value = '';
+    window.history.pushState({}, '', '/');
+    renderGames(games); // Show all games when cleared
 });
