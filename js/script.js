@@ -147,10 +147,9 @@ const games = [
 ];
 
 // Get DOM elements
-const searchInput = document.getElementById('searchInput');
-const searchButton = document.getElementById('searchButton');
-const clearSearchButton = document.getElementById('clearSearchButton');
 const gamesList = document.querySelector('.games-list');
+const tosModal = document.getElementById('tosModal');
+const acceptButton = document.getElementById('acceptTOS');
 
 // Function to check if a game is available based on the current date
 function isGameAvailable(game) {
@@ -184,43 +183,26 @@ function renderGames(filteredGames) {
     }
 }
 
-// Function to filter games based on search input
-function filterGames(query) {
-    const filteredGames = games.filter(game => 
-        game.title.toLowerCase().includes(query) || 
-        game.description.toLowerCase().includes(query)
-    );
-    renderGames(filteredGames);
-}
-
-// Function to get the query from the URL
-function getQueryParameter(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
-
-// Initialize with games based on the URL query
-const query = getQueryParameter('search');
-if (query) {
-    searchInput.value = query;
-    filterGames(query.toLowerCase());
-} else {
-    renderGames(games);
-}
-
 // Check if the user has already accepted the TOS
 if (!localStorage.getItem('acceptedTOS')) {
     // Show the modal if the user hasn't accepted yet
     tosModal.style.display = 'block';
 }
 
-// When the user accepts the TOS
-acceptButton.addEventListener('click', () => {
-    // Store the acceptance in localStorage so they won't see the modal again
-    localStorage.setItem('acceptedTOS', 'true');
-    // Hide the modal
-    tosModal.style.display = 'none';
+// Check if TOS is accepted
+document.addEventListener('DOMContentLoaded', () => {
+    if (!localStorage.getItem('acceptedTOS')) {
+        tosModal.style.display = 'block';
+    }
 });
+
+// Handle TOS acceptance
+if (acceptButton) {
+    acceptButton.addEventListener('click', () => {
+        localStorage.setItem('acceptedTOS', 'true');
+        tosModal.style.display = 'none';
+    });
+}
 
 // Initial render: Sort and then render the games
 document.addEventListener('DOMContentLoaded', () => {
