@@ -148,8 +148,6 @@ const games = [
 
 // Get DOM elements
 const gamesList = document.querySelector('.games-list');
-const tosModal = document.getElementById('tosModal');
-const acceptButton = document.getElementById('acceptTOS');
 
 // Function to check if a game is available based on the current date
 function isGameAvailable(game) {
@@ -182,24 +180,6 @@ function renderGames(filteredGames) {
         });
     }
 }
-
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the modal and button
-    const modal = document.getElementById('tosModal');
-    const acceptButton = document.getElementById('acceptTOS');
-
-    // Check if TOS has been accepted
-    if (!localStorage.getItem('tosAccepted')) {
-        modal.style.display = 'block';
-    }
-
-    // Add click event to accept button
-    acceptButton.addEventListener('click', function() {
-        localStorage.setItem('tosAccepted', 'true');
-        modal.style.display = 'none';
-    });
-});
 
 // Initial render: Sort and then render the games
 document.addEventListener('DOMContentLoaded', () => {
