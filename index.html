@@ -140,10 +140,98 @@
         <div id="tosModal" class="tos-modal">
             <div class="tos-modal-content">
                 <h2>Terms of Service</h2>
-                <p>Please read and accept our <a href="terms" target="_blank">Terms of Service</a> to continue using the website.</p>
+                <div class="tos-content">
+                    <h3>Welcome to Greenhoh1's Game Hosting!</h3>
+                    <p>Please read and accept our <a href="terms.html">Terms of Service</a> to continue using the website.</p>
+                </div>
                 <button id="acceptTOS">I Accept</button>
             </div>
         </div>
+
+        <style>
+        .tos-link {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .tos-link:hover {
+            color: #45a049;
+            text-decoration: underline;
+        }
+        
+        .tos-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+        }
+
+        .tos-modal-content {
+            position: relative;
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .tos-content {
+            margin: 20px 0;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+
+        #acceptTOS {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        #acceptTOS:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .tos-modal-content {
+                margin: 30% auto;
+                width: 90%;
+            }
+        }
+        </style>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('tosModal');
+            const acceptButton = document.getElementById('acceptTOS');
+
+            // Show modal if terms haven't been accepted
+            if (!localStorage.getItem('tosAccepted')) {
+                modal.style.display = 'block';
+            }
+
+            // Handle accept button click
+            acceptButton.addEventListener('click', function() {
+                localStorage.setItem('tosAccepted', 'true');
+                modal.style.display = 'none';
+            });
+        });
+        </script>
 
         <div class="games-list">
             <!-- Games will be dynamically listed here -->
