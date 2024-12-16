@@ -169,30 +169,36 @@ body {
     }
 }
 
-/* Modal Background */
 .tos-modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    z-index: 1000; /* Ensures it sits on top of other content */
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
 }
 
-/* Modal Content */
 .tos-modal-content {
-    background-color: #fff;
+    background-color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 600px;
     text-align: center;
+}
+
+#acceptTOS {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
 }
 
 button {

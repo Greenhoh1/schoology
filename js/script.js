@@ -183,26 +183,23 @@ function renderGames(filteredGames) {
     }
 }
 
-// Check if the user has already accepted the TOS
-if (!localStorage.getItem('acceptedTOS')) {
-    // Show the modal if the user hasn't accepted yet
-    tosModal.style.display = 'block';
-}
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the modal and button
+    const modal = document.getElementById('tosModal');
+    const acceptButton = document.getElementById('acceptTOS');
 
-// Check if TOS is accepted
-document.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('acceptedTOS')) {
-        tosModal.style.display = 'block';
+    // Check if TOS has been accepted
+    if (!localStorage.getItem('tosAccepted')) {
+        modal.style.display = 'block';
     }
-});
 
-// Handle TOS acceptance
-if (acceptButton) {
-    acceptButton.addEventListener('click', () => {
-        localStorage.setItem('acceptedTOS', 'true');
-        tosModal.style.display = 'none';
+    // Add click event to accept button
+    acceptButton.addEventListener('click', function() {
+        localStorage.setItem('tosAccepted', 'true');
+        modal.style.display = 'none';
     });
-}
+});
 
 // Initial render: Sort and then render the games
 document.addEventListener('DOMContentLoaded', () => {
