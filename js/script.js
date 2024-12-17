@@ -144,12 +144,12 @@ const games = [
         thumbnail: 'games/Breakouts/breakouts/enchantjs/resources/logo.png',
         link: 'games/Breakouts/breakouts/enchantjs/index.html'
     },
-    /*{
+    {
         title: 'Monkey Mart',
         description: 'an idle/management game where you control a cute monkey character who is in charge of a supermarket.',
         thumbnail: 'games/MonkeyMart/thumbnail.png',
         link: 'games/MonkeyMart/index.html'
-    },*/
+    },
    /*{
         title: 'Snow Rider 3D',
         description: 'an exhilarating snowboarding experience.',
