@@ -262,7 +262,7 @@
     </footer>
     <script>
         const countdown = () => {
-            const countDate = new Date("December 19, 2024 07:30:00").getTime();
+            const countDate = new Date("December 20, 2024 07:30:00").getTime();
             const now = new Date().getTime();
             const gap = countDate - now;
 
@@ -280,9 +280,9 @@
             // Update the countdown timer
             const timerElement = document.getElementById("countdownTimer");
             if (gap > 0) {
-                timerElement.textContent = `Time until the fourth game drop(Snowrider 3D): ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                timerElement.textContent = `Time until the fifth game drop(Tetris): ${days}d ${hours}h ${minutes}m ${seconds}s`;
             } else {
-                timerElement.textContent = "Snowrider 3D has dropped! 🎉";
+                timerElement.textContent = "Tetris has dropped! 🎉";
             }
         };
 
