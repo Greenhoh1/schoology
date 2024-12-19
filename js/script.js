@@ -159,8 +159,8 @@ const games = [
    {
         title: 'Snow Rider 3D',
         description: 'an exhilarating snowboarding experience.',
-        thumbnail: 'ggames/SnowRider3D/thumbnail.png',
-        link: 'ggames/SnowRider3D/index.html'
+        thumbnail: 'games/SnowRider3D/thumbnail.png',
+        link: 'games/SnowRider3D/index.html'
    }
 ];
 
