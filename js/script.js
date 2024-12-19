@@ -156,12 +156,12 @@ const games = [
         thumbnail: 'games/Eaglercraft/thumbnail.png',
         link: 'games/Eaglercraft/index.html'
     },
-   /*{
+   {
         title: 'Snow Rider 3D',
         description: 'an exhilarating snowboarding experience.',
         thumbnail: 'ggames/SnowRider3D/thumbnail.png',
         link: 'ggames/SnowRider3D/index.html'
-    }*/
+   }
 ];
 
 // Get DOM elements
