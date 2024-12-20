@@ -161,6 +161,12 @@ const games = [
         description: 'an exhilarating snowboarding experience.',
         thumbnail: 'games/SnowRider3D/thumbnail.png',
         link: 'games/SnowRider3D/index.html'
+   },
+   {
+    title: 'Tetris',
+    description: 'a fun little game about dalling puzzle pieces',
+    thumbnail: 'games/Tetris/thumbnail.png',
+    link: 'games/Tetris/index.html'
    }
 ];
 
