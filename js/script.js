@@ -171,8 +171,8 @@ const games = [
    {
     title: 'Super Mario Bros',
     description: 'the first ever mario game!',
-    thumbnail: 'games\SuperMarioBros\favicon.ico',
-    link: 'games\SuperMarioBros\index.html'
+    thumbnail: 'games/SuperMarioBros/favicon.ico',
+    link: 'games/SuperMarioBros/index.html'
    }
 ];
 
