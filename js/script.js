@@ -178,13 +178,20 @@ const games = [
 
 // Get DOM elements
 const gamesList = document.querySelector('.games-list');
+const searchInput = document.querySelector('.search-input');
+const paginationContainer = document.querySelector('.pagination');
+const loadingIndicator = document.querySelector('.loading-indicator');
+
+// Pagination settings
+const gamesPerPage = 20;
+let currentPage = 1;
 
 // Sort games alphabetically by title
 function sortGamesAZ(games) {
     return [...games].sort((a, b) => a.title.localeCompare(b.title));
 }
 
-// Function to render a single game item
+// Function to create a game item
 function createGameItem(game) {
     const gameItem = document.createElement('div');
     gameItem.classList.add('game-item');
@@ -197,7 +204,7 @@ function createGameItem(game) {
     return gameItem;
 }
 
-// Function to render games
+// Function to render the games on the page
 function renderGames(games) {
     gamesList.innerHTML = ''; // Clear previous games
     if (games.length === 0) {
@@ -210,8 +217,52 @@ function renderGames(games) {
     }
 }
 
+// Function to update pagination
+function updatePagination(totalGames) {
+    const totalPages = Math.ceil(totalGames / gamesPerPage);
+    paginationContainer.innerHTML = ''; // Clear existing pagination buttons
+
+    for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.classList.add('pagination-btn');
+        button.textContent = i;
+        button.addEventListener('click', () => changePage(i));
+        paginationContainer.appendChild(button);
+    }
+}
+
+// Function to change the page
+function changePage(page) {
+    currentPage = page;
+    const start = (currentPage - 1) * gamesPerPage;
+    const end = start + gamesPerPage;
+    renderGames(games.slice(start, end));
+}
+
+// Function to handle search filtering
+function handleSearch(event) {
+    const searchTerm = event.target.value.toLowerCase();
+    const filteredGames = games.filter(game =>
+        game.title.toLowerCase().includes(searchTerm)
+    );
+    renderGames(filteredGames.slice(0, gamesPerPage)); // Render filtered games on first page
+    updatePagination(filteredGames.length); // Update pagination for filtered results
+}
+
+// Debounce function for search input
+let searchTimeout;
+function debounceSearch(event) {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => handleSearch(event), 300);
+}
+
+// Event listener for search input
+searchInput.addEventListener('input', debounceSearch);
+
 // Initial render: Sort and then render the games
 document.addEventListener('DOMContentLoaded', () => {
+    loadingIndicator.style.display = 'none'; // Hide loading indicator when DOM is loaded
     const sortedGames = sortGamesAZ(games);
-    renderGames(sortedGames);
+    renderGames(sortedGames.slice(0, gamesPerPage)); // Show first page of sorted games
+    updatePagination(sortedGames.length); // Update pagination for sorted games
 });
