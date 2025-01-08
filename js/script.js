@@ -109,12 +109,6 @@ const games = [
         link: 'games/ASmallWorldCup/index.html'
     },
     {
-        title: 'The Oregon Trail',
-        description: 'You get to play the role of a wagon leader and guide your group of chosen settlers from Independence, Missouri, to the Willamette Valley in Oregon while traveling along the Oregon Trail.',
-        thumbnail: 'games/OregonTrail/thumbnail.png',
-        link: 'games/OregonTrail/index.html'
-    },
-    {
         title: 'Pacman',
         description: 'Its pacman people get it together.',
         thumbnail: 'games/Pacman/icon/ios_icon.png',
@@ -150,30 +144,30 @@ const games = [
         thumbnail: 'games/MonkeyMart/thumbnail.png',
         link: 'games/MonkeyMart/index.html'
     },
-   {
-        title: 'Snow Rider 3D',
-        description: 'an exhilarating snowboarding experience.',
-        thumbnail: 'games/SnowRider3D/thumbnail.png',
-        link: 'games/SnowRider3D/index.html'
-   },
-   {
-    title: 'Tetris',
-    description: 'a fun little game about dalling puzzle pieces',
-    thumbnail: 'games/Tetris/thumbnail.png',
-    link: 'games/Tetris/index.html'
-   },
-   {
-    title: 'Super Mario Bros',
-    description: 'the first ever mario game!',
-    thumbnail: 'games/SuperMarioBros/favicon.ico',
-    link: 'games/SuperMarioBros/index.html'
-   },
-   {
-    title: 'Mine Sweeper',
-    description: 'a fun game about mines and flags',
-    thumbnail: 'games/MineSweeper/favicon.ico',
-    link: 'games/MineSweeper/index.html'
-   }
+    {
+            title: 'Snow Rider 3D',
+            description: 'an exhilarating snowboarding experience.',
+            thumbnail: 'games/SnowRider3D/thumbnail.png',
+            link: 'games/SnowRider3D/index.html'
+    },
+    {
+        title: 'Tetris',
+        description: 'a fun little game about dalling puzzle pieces',
+        thumbnail: 'games/Tetris/thumbnail.png',
+        link: 'games/Tetris/index.html'
+    },
+    {
+        title: 'Super Mario Bros',
+        description: 'the first ever mario game!',
+        thumbnail: 'games/SuperMarioBros/favicon.ico',
+        link: 'games/SuperMarioBros/index.html'
+    },
+    {
+        title: 'Mine Sweeper',
+        description: 'a fun game about mines and flags',
+        thumbnail: 'games/MineSweeper/favicon.ico',
+        link: 'games/MineSweeper/index.html'
+    }
 ];
 
 // Get DOM elements
