@@ -167,44 +167,48 @@ const games = [
     description: 'a fun little game about dalling puzzle pieces',
     thumbnail: 'games/Tetris/thumbnail.png',
     link: 'games/Tetris/index.html'
+<<<<<<< HEAD
    },
    {
     title: 'Super Mario Bros',
     description: 'the first ever mario game!',
     thumbnail: 'games/SuperMarioBros/favicon.ico',
     link: 'games/SuperMarioBros/index.html'
+=======
+>>>>>>> parent of e3558a7 (Add initial files for Super Mario Bros game including settings, assets, and manifest)
    }
 ];
 
 // Get DOM elements
 const gamesList = document.querySelector('.games-list');
 
+// Function to check if a game is available based on the current date
+function isGameAvailable(game) {
+    const currentDate = new Date();
+    const releaseDate = new Date(game.releaseDate);
+    return !game.releaseDate || currentDate >= releaseDate; // Show if no releaseDate or releaseDate is in the past
+}
+
 // Sort games alphabetically by title
-function sortGamesAZ(games) {
+function sortGamesAZ() {
     return [...games].sort((a, b) => a.title.localeCompare(b.title));
 }
 
-// Function to render a single game item
-function createGameItem(game) {
-    const gameItem = document.createElement('div');
-    gameItem.classList.add('game-item');
-    gameItem.innerHTML = `
-        <img src="${game.thumbnail}" alt="${game.title}" class="game-thumbnail">
-        <h3 class="game-title">${game.title}</h3>
-        <p class="game-description">${game.description}</p>
-        <a href="${game.link}" target="_blank" class="play-now-btn">Play Now</a>
-    `;
-    return gameItem;
-}
-
 // Function to render games
-function renderGames(games) {
+function renderGames(filteredGames) {
     gamesList.innerHTML = ''; // Clear previous games
-    if (games.length === 0) {
+    if (filteredGames.length === 0) {
         gamesList.innerHTML = '<div class="no-results-message">No games found.</div>';
     } else {
-        games.forEach(game => {
-            const gameItem = createGameItem(game);
+        filteredGames.forEach(game => {
+            const gameItem = document.createElement('div');
+            gameItem.classList.add('game-item');
+            gameItem.innerHTML = `
+                <img src="${game.thumbnail}" alt="${game.title}">
+                <h3>${game.title}</h3>
+                <p>${game.description}</p>
+                <a href="${game.link}" target="_blank">Play Now</a>
+            `;
             gamesList.appendChild(gameItem);
         });
     }
@@ -212,6 +216,5 @@ function renderGames(games) {
 
 // Initial render: Sort and then render the games
 document.addEventListener('DOMContentLoaded', () => {
-    const sortedGames = sortGamesAZ(games);
-    renderGames(sortedGames);
+    renderGames(sortGamesAZ());
 });
