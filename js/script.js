@@ -167,6 +167,12 @@ const games = [
         description: 'a fun game about mines and flags',
         thumbnail: 'games/MineSweeper/favicon.ico',
         link: 'games/MineSweeper/index.html'
+    },
+    {
+        title: 'Eggy Car',
+        description: 'a hard driving game in which you are required to transport eggs while driving on roads that are both rough and uneven.',
+        thumbnail: 'games/EggyCar/images/logo/eggy-car.png',
+        link: 'games/EggyCar/index.html'
     }
 ];
 
