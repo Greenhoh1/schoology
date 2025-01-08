@@ -215,3 +215,18 @@ function renderGames(filteredGames) {
 document.addEventListener('DOMContentLoaded', () => {
     renderGames(sortGamesAZ());
 });
+
+// Event listeners
+searchButton.addEventListener('click', () => {
+    const query = searchInput.value.trim();
+    if (query) {
+        window.history.pushState({}, '', `/?search=${query}`);
+        filterGames(query.toLowerCase());
+    }
+});
+
+clearSearchButton.addEventListener('click', () => {
+    searchInput.value = '';
+    window.history.pushState({}, '', '/');
+    renderGames(games); // Show all games when cleared
+});
