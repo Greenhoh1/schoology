@@ -161,6 +161,18 @@ const games = [
     description: 'a fun little game about dalling puzzle pieces',
     thumbnail: 'games/Tetris/thumbnail.png',
     link: 'games/Tetris/index.html'
+   },
+   {
+    title: 'Super Mario Bros',
+    description: 'the first ever mario game!',
+    thumbnail: 'games/SuperMarioBros/favicon.ico',
+    link: 'games/SuperMarioBros/index.html'
+   },
+   {
+    title: 'Mine Sweeper',
+    description: 'a fun game about mines and flags',
+    thumbnail: 'games/MineSweeper/favicon.ico',
+    link: 'games/MineSweeper/index.html'
    }
 ];
 
