@@ -167,15 +167,12 @@ const games = [
     description: 'a fun little game about dalling puzzle pieces',
     thumbnail: 'games/Tetris/thumbnail.png',
     link: 'games/Tetris/index.html'
-<<<<<<< HEAD
    },
    {
     title: 'Super Mario Bros',
     description: 'the first ever mario game!',
     thumbnail: 'games/SuperMarioBros/favicon.ico',
     link: 'games/SuperMarioBros/index.html'
-=======
->>>>>>> parent of e3558a7 (Add initial files for Super Mario Bros game including settings, assets, and manifest)
    }
 ];
 
