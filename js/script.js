@@ -167,24 +167,11 @@ const games = [
     description: 'a fun little game about dalling puzzle pieces',
     thumbnail: 'games/Tetris/thumbnail.png',
     link: 'games/Tetris/index.html'
-   },
-   {
-    title: 'Super Mario Bros',
-    description: 'the first ever mario game!',
-    thumbnail: 'games/SuperMarioBros/favicon.ico',
-    link: 'games/SuperMarioBros/index.html'
    }
 ];
 
 // Get DOM elements
 const gamesList = document.querySelector('.games-list');
-
-// Function to check if a game is available based on the current date
-function isGameAvailable(game) {
-    const currentDate = new Date();
-    const releaseDate = new Date(game.releaseDate);
-    return !game.releaseDate || currentDate >= releaseDate; // Show if no releaseDate or releaseDate is in the past
-}
 
 // Sort games alphabetically by title
 function sortGamesAZ() {
@@ -214,19 +201,4 @@ function renderGames(filteredGames) {
 // Initial render: Sort and then render the games
 document.addEventListener('DOMContentLoaded', () => {
     renderGames(sortGamesAZ());
-});
-
-// Event listeners
-searchButton.addEventListener('click', () => {
-    const query = searchInput.value.trim();
-    if (query) {
-        window.history.pushState({}, '', `/?search=${query}`);
-        filterGames(query.toLowerCase());
-    }
-});
-
-clearSearchButton.addEventListener('click', () => {
-    searchInput.value = '';
-    window.history.pushState({}, '', '/');
-    renderGames(games); // Show all games when cleared
 });
