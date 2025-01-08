@@ -150,12 +150,6 @@ const games = [
         thumbnail: 'games/MonkeyMart/thumbnail.png',
         link: 'games/MonkeyMart/index.html'
     },
-    {
-        title: 'Eaglercraft',
-        description: 'Minecraft java edition 1.20 in your browser.',
-        thumbnail: 'games/Eaglercraft/thumbnail.png',
-        link: 'games/Eaglercraft/index.html'
-    },
    {
         title: 'Snow Rider 3D',
         description: 'an exhilarating snowboarding experience.',
