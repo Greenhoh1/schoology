@@ -173,6 +173,12 @@ const games = [
         description: 'a hard driving game in which you are required to transport eggs while driving on roads that are both rough and uneven.',
         thumbnail: 'games/EggyCar/images/logo/eggy-car.png',
         link: 'games/EggyCar/index.html'
+    },
+    {
+        title: 'Mario Kart 8',
+        description: 'a fun racing game with mario characters',
+        thumbnail: 'games/MarioKart8/Thunbnail.png',
+        link: 'gamesMarioKart8/index.html'
     }
 ];
 
