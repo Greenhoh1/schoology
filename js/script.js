@@ -177,7 +177,7 @@ const games = [
     {
         title: 'Mario Kart 8',
         description: 'a fun racing game with mario characters',
-        thumbnail: 'games/MarioKart8/Thunbnail.png',
+        thumbnail: 'games/MarioKart8/Thumbnail.png',
         link: 'games/MarioKart8/index.html'
     },
     {
