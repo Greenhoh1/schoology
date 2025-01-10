@@ -178,7 +178,13 @@ const games = [
         title: 'Mario Kart 8',
         description: 'a fun racing game with mario characters',
         thumbnail: 'games/MarioKart8/Thunbnail.png',
-        link: 'gamesMarioKart8/index.html'
+        link: 'games/MarioKart8/index.html'
+    },
+    {
+        title: 'Crossy Road',
+        description: 'a fun game where you have to cross the road without getting hit by cars, trains, and other obstacles.',
+        thumbnail: 'games/CrossyRoad/Thunbnail.png',
+        link: 'games/CrossyRoad/index.html'
     }
 ];
 
