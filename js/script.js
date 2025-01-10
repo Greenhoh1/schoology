@@ -183,13 +183,13 @@ const games = [
     {
         title: 'Crossy Road',
         description: 'a fun game where you have to cross the road without getting hit by cars, trains, and other obstacles.',
-        thumbnail: 'games/CrossyRoad/Thunbnail.png',
+        thumbnail: 'games/CrossyRoad/Thumbnail.png',
         link: 'games/CrossyRoad/index.html'
     },
     {
         title: 'Getting Over It',
         description: 'a fun game where you have to climb a mountain using a hammer.',
-        thumbnail: 'games/GettingOverIt/Thunbnail.png',
+        thumbnail: 'games/GettingOverIt/Thumbnail.png',
         link: 'games/GettingOverIt/index.html'
     }
 ];
