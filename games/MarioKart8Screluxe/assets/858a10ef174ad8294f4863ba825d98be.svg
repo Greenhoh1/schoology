@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="11.065799713134766" height="10.60830020904541" viewBox="0.2295999526977539 0.001999974250793457 11.065799713134766 10.60830020904541">
+  <defs>
+    <radialGradient id="grad_1" cx="0.5389" cy="0.47609999999999997" r="0.70057">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="1" stop-color="#61BAFF" stop-opacity="1"/>
+    </radialGradient>
+  <radialGradient id="grad_1-.6536250114440918,0,0,0.6536250114440918,-150.65,-113" cx="6.154" cy="5.0765" r="6.8934" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="1" stop-color="#61BAFF" stop-opacity="1"/>
+    </radialGradient></defs>
+  <!-- Exported by Scratch - http://scratch.mit.edu/ -->
+  <path id="ID0.33808834152296185" fill="url(#grad_1-.6536250114440918,0,0,0.6536250114440918,-150.65,-113)" stroke="none" stroke-linecap="round" d="M 1.71 0.502 L 6.7102 1.5478 L 10.7954 0.502 L 10.3052 10.1103 L 6.8083 8.4762 L 0.7296 9.7835 L 1.71 0.502 Z " stroke-width="0.6536250114440918"/>
+</svg>

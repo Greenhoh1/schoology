@@ -181,10 +181,28 @@ const games = [
         link: 'games/SuperMarioScralaxy/index.html'
     },
     {
-        title: 'Suoer Mario Scratchy World',// v0.2.2
+        title: 'Super Mario Scratchy World',// v0.2.2
         description: 'a game where you have to collect coins to win.',
         thumbnail: 'games/SuperMarioScratchyWorld/Thumbnail.png',
         link: 'games/SuperMarioScratchyWorld/index.html'
+    },
+    {
+        title: 'Mario Kart 8 Screluxe',// v0.6.7
+        description: 'a fun racing game with mario characters',
+        thumbnail: 'games/MarioKart8Screluxe/Thumbnail.png',
+        link: 'games/MarioKart8Screluxe/index.html'
+    },
+    {
+        title: 'Paper Mario Tear In Reality',// v0.1.2
+        description: 'a game where you have to collect coins to win.',
+        thumbnail: 'games/PaperMarioTearInReality/Thumbnail.png',
+        link: 'games/PaperMarioTearInReality/index.html'
+    },
+    {
+        title: 'Super Scratch Bros. Scrultimate',// v0.1.2.5
+        description: 'a game where you have to collect coins to win.',
+        thumbnail: 'games/Super ScratchBros.Scrultimate/Thumbnail.png',
+        link: 'games/Super ScratchBros.Scrultimate/index.html'
     }
 ];
 

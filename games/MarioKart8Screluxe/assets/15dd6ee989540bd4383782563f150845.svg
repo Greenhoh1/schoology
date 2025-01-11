@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="20.136499404907227" height="17.377399444580078" viewBox="-0.32179997861385345 1.2953999042510986 20.136499404907227 17.377399444580078">
+  <defs>
+    <radialGradient id="grad_1" cx="0.4697" cy="0.5428999999999999" r="0.70577">
+      <stop offset="0" stop-color="#54F4FF" stop-opacity="1"/>
+      <stop offset="1" stop-color="#297BFF" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="grad_2" cx="0.5487" cy="0.48969999999999997" r="0.71331">
+      <stop offset="0" stop-color="#54F4FF" stop-opacity="1"/>
+      <stop offset="1" stop-color="#297BFF" stop-opacity="1"/>
+    </radialGradient>
+  <radialGradient id="grad_1-.5954601168632507,0.7402210831642151,-0.7402210831642151,0.5954601168632507,-1.1500000000000057,-274.55" cx="9.0309" cy="9.6307" r="9.5894" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#54F4FF" stop-opacity="1"/>
+      <stop offset="1" stop-color="#297BFF" stop-opacity="1"/>
+    </radialGradient><radialGradient id="grad_2-.9024999737739563,0,0,0.9024999737739563,-207.35,-153.45" cx="9.2951" cy="9.7658" r="9.6912" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#54F4FF" stop-opacity="1"/>
+      <stop offset="1" stop-color="#297BFF" stop-opacity="1"/>
+    </radialGradient></defs>
+  <!-- Exported by Scratch - http://scratch.mit.edu/ -->
+  <g id="ID0.35774660389870405">
+    <path id="ID0.875516336876899" fill="url(#grad_1-.5954601168632507,0.7402210831642151,-0.7402210831642151,0.5954601168632507,-1.1500000000000057,-274.55)" stroke="none" stroke-linecap="round" d="M 9.9814 1.7954 L 19.3147 10.4422 L 9.8484 12.9974 L 8.0375 18.1728 L 0.1782 8.706 L 5.6994 6.703 L 9.9814 1.7954 Z " stroke-width="0.9500000014397895"/>
+    <path id="ID0.33808834152296185" fill="url(#grad_2-.9024999737739563,0,0,0.9024999737739563,-207.35,-153.45)" stroke="none" stroke-linecap="round" d="M 3.0227 3.2691 L 9.9269 4.7131 L 15.5675 3.2691 L 14.8906 16.5359 L 10.0622 14.2796 L 1.669 16.0846 L 3.0227 3.2691 Z " stroke-width="0.9024999737739563"/>
+  </g>
+</svg>

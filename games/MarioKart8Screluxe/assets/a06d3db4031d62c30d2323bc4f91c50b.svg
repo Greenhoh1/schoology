@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="13.766119003295898" height="12.399283409118652" viewBox="-0.003911733627319336 -0.4494936466217041 13.766119003295898 12.399283409118652">
+  <defs>
+    <radialGradient id="grad_1" cx="0.4657" cy="0.5276" r="0.69459">
+      <stop offset="0" stop-color="#FFD72E" stop-opacity="1"/>
+      <stop offset="1" stop-color="#FF8120" stop-opacity="1"/>
+    </radialGradient>
+  <radialGradient id="grad_1-.6983373165130615,0,0,0.6983373165130615,-173.3,-121.35" cx="6.4413" cy="6.0648" r="8.406" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFD72E" stop-opacity="1"/>
+      <stop offset="1" stop-color="#FF8120" stop-opacity="1"/>
+    </radialGradient></defs>
+  <!-- Exported by Scratch - http://scratch.mit.edu/ -->
+  <path id="ID0.16507871402427554" fill="url(#grad_1-.6983373165130615,0,0,0.6983373165130615,-173.3,-121.35)" stroke="none" stroke-linecap="round" d="M 5.4744 1.4177 C 7.4101 1.1405 9.6532 -0.671 11.3055 0.3702 C 13.0876 1.5776 13.2818 4.4415 13.2608 6.5156 C 13.2448 8.1532 12.5304 10.0478 11.1735 10.9584 C 9.818 11.869 7.9283 11.0303 6.3124 10.9849 C 4.5735 11.0303 2.4701 12.0247 1.1021 10.9584 C -0.0551 10.0568 0.7941 8.0456 0.8304 6.5854 C 0.7941 5.0791 0.0713 3.1789 1.1021 2.0727 C 2.1056 0.9952 4.0183 1.623 5.4744 1.4177 Z " stroke-width="0.6983373165130615"/>
+</svg>
