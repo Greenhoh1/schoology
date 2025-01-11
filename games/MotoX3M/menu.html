@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        select:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Select a Game</h1>
+        <select id="gameSelector" onchange="redirectToGame()">
+            <option value="">--Select a Game--</option>
+            <option value="games/MotoX3M/index.html">Moto X3M</option>
+            <option value="games/MotoX3M/2/index.html">Moto X3M 2</option>
+            <option value="games/MotoX3M/4-winter/index.html">Moto X3M Winter</option>
+            <option value="games/MotoX3M/5-pool-party/index.html">Moto X3M Pool Party</option>
+            <option value="games/MotoX3M/6-spooky-land/index.html">Moto X3M Spooky Land</option>
+        </select>
+    </div>
+
+    <script>
+        function redirectToGame() {
+            var selectedGame = document.getElementById("gameSelector").value;
+            if (selectedGame) {
+                window.location.href = selectedGame;
+            }
+        }
+    </script>
+</body>
+</html>

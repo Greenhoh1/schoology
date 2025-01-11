@@ -7,34 +7,10 @@ const games = [
         link: 'games/OvO/index.html'
     },
     {
-        title: 'Moto X3M',
+        title: 'Moto X3M Game Selector',
         description: 'Fun game about motorcycles',
         thumbnail: 'games/MotoX3M/moto-x3m.png',
-        link: 'games/MotoX3M/index.html'
-    },
-    {
-        title: 'Moto X3M 2',
-        description: 'Fun game about motorcycles V2',
-        thumbnail: 'games/MotoX3M/2/thumbnail.png',
-        link: 'games/MotoX3M/2/index.html'
-    },
-    {
-        title: 'Moto X3M Winter',
-        description: 'Fun game about motorcycles on a winter map with extra challenges!',
-        thumbnail: 'games/MotoX3M/4-winter/thumbnail.png',
-        link: 'games/MotoX3M/4-winter/index.html'
-    },
-    {
-        title: 'Moto X3M Pool Party',
-        description: 'Fun game about motorcycles with fun pool party challenges!',
-        thumbnail: 'games/MotoX3M/5-pool-party/thumbnail.png',
-        link: 'games/MotoX3M/5-pool-party/index.html'
-    },
-    {
-        title: 'Moto X3M spooky land',
-        description: 'Fun game about motorcycles with scary halloween theming!',
-        thumbnail: 'games/MotoX3M/6-spooky-land/thumbnail.png',
-        link: 'games/MotoX3M/6-spooky-land/index.html'
+        link: 'games/MotoX3M/menu.html'
     },
     {
         title: 'Idle Breakout',
