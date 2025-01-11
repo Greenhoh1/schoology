@@ -201,8 +201,8 @@ const games = [
     {
         title: 'Super Scratch Bros. Scrultimate',// v0.1.2.5
         description: 'a game where you have to collect coins to win.',
-        thumbnail: 'games/Super ScratchBros.Scrultimate/Thumbnail.png',
-        link: 'games/Super ScratchBros.Scrultimate/index.html'
+        thumbnail: 'games/SuperScratchBros.Scrultimate/Thumbnail.png',
+        link: 'games/SuperScratchBros.Scrultimate/index.html'
     }
 ];
 
