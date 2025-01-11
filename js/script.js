@@ -203,12 +203,6 @@ const games = [
         description: 'a game where you have to collect coins to win.',
         thumbnail: 'games/SuperScratchBros.Scrultimate/Thumbnail.png',
         link: 'games/SuperScratchBros.Scrultimate/index.html'
-    },
-    {
-        title: 'Roblox',
-        description: 'a game where you can play games made by other people.',
-        thumbnail: 'games/Roblox/Thumbnail.png',
-        link: 'games/Roblox/static/index.html'
     }
 ];
 
