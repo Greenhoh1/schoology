@@ -167,6 +167,24 @@ const games = [
         description: 'a fun game where you have to climb a mountain using a hammer.',
         thumbnail: 'games/GettingOverIt/Thumbnail.png',
         link: 'games/GettingOverIt/index.html'
+    },
+    {
+        title: 'Mario Party S',// v.0.1.5
+        description: 'a game where you have to play mini games to win.',
+        thumbnail: 'games/MarioPartyS/Thumbnail.png',
+        link: 'games/MarioPartyS/index.html'
+    },
+    {
+        title: 'Super Mario Scralaxy',// v0.7.3.5
+        description: 'a game where you have to collect stars to win.',
+        thumbnail: 'games/SuperMarioScralaxy/Thumbnail.png',
+        link: 'games/SuperMarioScralaxy/index.html'
+    },
+    {
+        title: 'Suoer Mario Scratchy World',// v0.2.2
+        description: 'a game where you have to collect coins to win.',
+        thumbnail: 'games/SuperMarioScratchyWorld/Thumbnail.png',
+        link: 'games/SuperMarioScratchyWorld/index.html'
     }
 ];
 
