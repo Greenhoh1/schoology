@@ -207,7 +207,7 @@ const games = [
     {
         title: 'Roblox',
         description: 'a game where you can play games made by other people.',
-        thumbnail: 'games/MarioKart8/Thumbnail.png',
+        thumbnail: 'games/Roblox/Thumbnail.png',
         link: 'games/Roblox/static/index.html'
     }
 ];
