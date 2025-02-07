@@ -145,12 +145,6 @@ const games = [
         link: 'games/MineSweeper/index.html'
     },
     {
-        title: 'Eggy Car',
-        description: 'a hard driving game in which you are required to transport eggs while driving on roads that are both rough and uneven.',
-        thumbnail: 'games/EggyCar/images/logo/eggy-car.png',
-        link: 'games/EggyCar/index.html'
-    },
-    {
         title: 'Crossy Road',
         description: 'a fun game where you have to cross the road without getting hit by cars, trains, and other obstacles.',
         thumbnail: 'games/CrossyRoad/Thumbnail.png',
@@ -161,42 +155,6 @@ const games = [
         description: 'a fun game where you have to climb a mountain using a hammer.',
         thumbnail: 'games/GettingOverIt/Thumbnail.png',
         link: 'games/GettingOverIt/index.html'
-    },
-    {
-        title: 'Mario Party S',// v.0.1.5
-        description: 'a game where you have to play mini games to win.',
-        thumbnail: 'games/MarioPartyS/Thumbnail.png',
-        link: 'games/MarioPartyS/index.html'
-    },
-    {
-        title: 'Super Mario Scralaxy',// v0.7.3.5
-        description: 'a game where you have to collect stars to win.',
-        thumbnail: 'games/SuperMarioScralaxy/Thumbnail.png',
-        link: 'games/SuperMarioScralaxy/index.html'
-    },
-    {
-        title: 'Super Mario Scratchy World',// v0.2.2
-        description: 'a game where you have to collect coins to win.',
-        thumbnail: 'games/SuperMarioScratchyWorld/Thumbnail.png',
-        link: 'games/SuperMarioScratchyWorld/index.html'
-    },
-    {
-        title: 'Mario Kart 8 Screluxe',// v0.6.7
-        description: 'a fun racing game with mario characters',
-        thumbnail: 'games/MarioKart8Screluxe/Thumbnail.png',
-        link: 'games/MarioKart8Screluxe/index.html'
-    },
-    {
-        title: 'Paper Mario Tear In Reality',// v0.1.2
-        description: 'a game where you have to collect coins to win.',
-        thumbnail: 'games/PaperMarioTearInReality/Thumbnail.png',
-        link: 'games/PaperMarioTearInReality/index.html'
-    },
-    {
-        title: 'Super Scratch Bros. Scrultimate',// v0.1.2.5
-        description: 'a game where you have to collect coins to win.',
-        thumbnail: 'games/SuperScratchBros.Scrultimate/Thumbnail.png',
-        link: 'games/SuperScratchBros.Scrultimate/index.html'
     }
 ];
 
